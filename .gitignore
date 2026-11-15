@@ -1,0 +1,20 @@
+# Los datos de la consultora, sus clientes y sus candidatos nunca se suben al repositorio.
+# El repo trae el sistema (skills, plantillas, tablero); los datos quedan solo en la computadora del equipo.
+contexto/*
+clientes/*
+busquedas/*
+investigacion/*
+tablero/datos.js
+!*/.gitkeep
+!contexto/importado/
+contexto/importado/*
+!contexto/importado/.gitkeep
+
+# Sistema
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
+
+# Material interno de quien vende e implementa el sistema
+taller/
+PLAN.md

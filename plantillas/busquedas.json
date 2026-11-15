@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "consultora": "",
+  "actualizado": "",
+  "clientes": [],
+  "busquedas": [],
+  "acciones": [],
+  "sync": {
+    "ultima": null,
+    "ultimoIntento": null,
+    "programada": false,
+    "horario": "",
+    "error": null,
+    "procesados": [],
+    "porRevisar": []
+  }
+}
