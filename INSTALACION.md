@@ -16,7 +16,7 @@ Tiempo estimado: 20 a 30 minutos por persona del equipo.
 | La **app de escritorio de Claude** (Windows o Mac) | Es donde corre el sistema | https://claude.com/download |
 | La **cuenta de Google** con la que trabajan las búsquedas | Para conectar Gmail y Calendar (solo lectura) | La de trabajo |
 | *Opcional:* un Excel o CSV con las búsquedas en curso | Para cargarlas en el tablero el primer día | Exportalo desde tu planilla, Notion o ATS |
-| *Si te lo pasaron así:* el **ZIP** del sistema | Para instalar sin acceso a GitHub | Te lo manda quien implementa el sistema |
+| *Solo si tu red bloquea GitHub:* el **ZIP** del sistema | Para instalar sin que Claude tenga que descargarlo | Bajalo con el navegador desde https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip |
 
 ### 2. Abrí Claude Code en tu carpeta de Documentos
 
@@ -30,7 +30,7 @@ Tiempo estimado: 20 a 30 minutos por persona del equipo.
 Instalá el Recruiting OS siguiendo, etapa por etapa, la guía https://raw.githubusercontent.com/JuanLoredo6/recruiting-os/main/INSTALACION.md
 ```
 
-Si te pasaron un ZIP, dejalo en Documentos y pegá en cambio:
+Si Claude no puede descargar de GitHub (pasa en algunas redes corporativas), bajá el ZIP con el navegador desde https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip, dejalo en Documentos y pegá en cambio:
 
 ```
 Instalá el Recruiting OS desde el ZIP que dejé en Documentos. Seguí, etapa por etapa, la guía INSTALACION.md que está adentro.
@@ -71,7 +71,7 @@ Comprobación: sabés el sistema operativo, si hay Git y si hay un ZIP.
    - **Con un ZIP que dejó la persona:** descomprimilo en una carpeta temporal nueva, comprobá que adentro haya `CLAUDE.md` y `.claude/skills/`, y movelo a la carpeta de destino. No corras nada de lo que trae el ZIP durante este paso. Borrá el ZIP solo si la persona lo confirma.
    - **Con Git:** `git clone https://github.com/JuanLoredo6/recruiting-os.git "<carpeta>"`
    - **Sin Git:** bajá https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip, descomprimilo y renombrá la carpeta `recruiting-os-main` a la carpeta de destino. En Windows, con PowerShell: `Invoke-WebRequest` y `Expand-Archive`. En macOS: `curl -L -o` y `unzip`. Borrá el ZIP al terminar.
-3. Si la descarga desde GitHub falla con un error 404 o de permisos, el repositorio probablemente sea privado: decile a la persona que le pida el ZIP a quien implementa el sistema, lo deje en Documentos y escriba «seguí con la instalación». Si falla por la red (una red corporativa que bloquea GitHub), pedile que abra el link del ZIP en su navegador y te diga dónde quedó.
+3. El repositorio es público: la descarga no pide usuario ni contraseña. Si falla por la red (una red corporativa que bloquea GitHub), pedile a la persona que abra el link del ZIP en su navegador, lo deje en Documentos y te avise: seguí con la opción del ZIP. Si da un error 404, no insistas con otras direcciones: decile que el link cambió y que lo confirme con quien implementa el sistema.
 
 Comprobación: existen `<carpeta>/CLAUDE.md`, `<carpeta>/.claude/skills/empezar/SKILL.md` y `<carpeta>/tablero/tablero.html`.
 
@@ -146,7 +146,7 @@ Después decile qué sigue, en este orden:
 |---|---|
 | No veo la pestaña **Code** | El plan no incluye Claude Code, o la app está desactualizada. Revisá el plan en claude.ai y actualizá la app desde https://claude.com/download |
 | Escribo `/empezar` y no aparece | Claude Code está abierto en otra carpeta. Abrí una sesión nueva en la carpeta del sistema (la que tiene `CLAUDE.md` adentro) |
-| Claude dice que no puede descargar, o da error 404 | Pedile el ZIP a quien implementa el sistema, dejalo en Documentos y escribí «seguí con la instalación» |
+| Claude dice que no puede descargar | Bajá el ZIP con el navegador desde https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip, dejalo en Documentos y escribí «seguí con la instalación» |
 | No encuentro Gmail en los conectores | Buscá «Gmail» y «Google Calendar» en el directorio de conectores. Si es una cuenta de Google Workspace, puede estar bloqueado por la organización: hablalo con quien la administra |
 | Conecté Gmail pero Claude no lo ve | Abrí una sesión nueva en la misma carpeta y escribí «seguí con la instalación» |
 | Claude me pide permiso para todo | Leé qué quiere hacer y aceptá si tiene sentido. Para leer mails y eventos, elegí «permitir siempre» |

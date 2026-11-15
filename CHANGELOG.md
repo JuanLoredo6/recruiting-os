@@ -4,6 +4,11 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 
 ## [Sin publicar]
 
+### Cambia
+
+- La instalación ya no depende de pedir el ZIP: el repositorio es público. El ZIP queda solo para redes que bloquean GitHub y se baja con el navegador.
+- `README.md` aclara que el repositorio público trae solo el sistema y que la copia con datos nunca va a un repositorio público. Suma el link al changelog y a las releases.
+
 ## [0.3.0] - 2026-11-14
 
 Lista para el piloto de instalación con consultoras.

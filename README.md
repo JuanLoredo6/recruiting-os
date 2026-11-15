@@ -27,7 +27,7 @@ Necesitás un plan de Claude que incluya Claude Code y la **app de escritorio de
 Instalá el Recruiting OS siguiendo, etapa por etapa, la guía https://raw.githubusercontent.com/JuanLoredo6/recruiting-os/main/INSTALACION.md
 ```
 
-Si te pasaron el sistema en un ZIP, dejalo en Documentos y pedí: «Instalá el Recruiting OS desde el ZIP que dejé en Documentos». La guía completa está en **[INSTALACION.md](INSTALACION.md)**.
+Si en tu red Claude no puede descargar de GitHub, bajá el [ZIP](https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip) con el navegador, dejalo en Documentos y pedí: «Instalá el Recruiting OS desde el ZIP que dejé en Documentos». La guía completa está en **[INSTALACION.md](INSTALACION.md)**.
 
 Al terminar, en la carpeta del sistema, escribí:
 
@@ -145,13 +145,14 @@ recruiting-os/
 ## Los datos
 
 - Los datos de la consultora, sus clientes y sus candidatos quedan **solo en la computadora** de cada persona. El `.gitignore` evita que se suban a GitHub por error.
-- **No subas tu copia a un repositorio público.** Si querés respaldo, una nube de la empresa o un repositorio **privado**.
+- Este repositorio es público y trae **solo el sistema**: skills, plantillas y tablero, sin datos de nadie.
+- **Tu copia, en cambio, tiene datos de candidatos: no la subas a un repositorio público.** Tampoco uses un fork público para guardar tus búsquedas. Si querés respaldo, una nube de la empresa o un repositorio **privado**.
 - `contexto/privacidad.md` es un punto de partida, no asesoramiento legal: revisalo con quien asesore a la consultora según los países donde trabaja.
 - Cada persona del equipo tiene su propia carpeta: la versión actual no comparte las búsquedas entre computadoras.
 
 ## Actualizar el sistema
 
-Cuando haya mejoras, pedile a Claude "actualizá el sistema" o corré `git pull`. Tus datos no se tocan: están fuera de lo que se versiona.
+Cuando haya mejoras, pedile a Claude "actualizá el sistema" o corré `git pull`. Tus datos no se tocan: están fuera de lo que se versiona. Qué cambió en cada versión está en [CHANGELOG.md](CHANGELOG.md) y en las [releases](https://github.com/JuanLoredo6/recruiting-os/releases).
 
 ## Créditos
 
