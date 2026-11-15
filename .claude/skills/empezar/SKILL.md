@@ -104,6 +104,10 @@ Con el método de `.claude/skills/poner-a-prueba/SKILL.md#método` (rondas numer
 5. Comprobá que existe `tablero/datos.js` (lo genera solo un hook al editar el JSON). Si no, corré `bash tablero/sincronizar.sh`.
 6. Decile que abra `tablero/tablero.html` con doble clic y lo deje abierto: se actualiza solo cada vez que Claude cambia algo.
 
+## Paso 6 bis: Gmail y Calendar (opcional)
+
+Preguntá si usan Gmail y Google Calendar para las búsquedas. Si dicen que sí, explicá en dos líneas que Claude puede revisar el correo y la agenda (solo lectura) para traer al tablero respuestas de candidatos, entrevistas y feedback de clientes: con el botón 🔄 SYNC, o sola cada 2 horas en horario laboral. Si quieren activarla, seguí el modo **Configurar** de `.claude/skills/sincronizar-correo/SKILL.md`. Si prefieren dejarlo para después, sumá la acción "Conectar Gmail y Calendar al tablero" sin fecha, con pedido `/sincronizar-correo configurar`.
+
 ## Paso 7: cierre
 
 En pocas líneas:

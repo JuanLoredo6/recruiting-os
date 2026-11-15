@@ -93,6 +93,16 @@ h1 { font-size: 28px; line-height: 1.15; margin: 0; letter-spacing: -.01em; }
 .alertas li { font-size: 14px; padding: 6px 0; border-top: 1px solid var(--border); display: flex; gap: 8px 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
 .alertas li:first-child { border-top: none; }
 
+.top-fila { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+#sync-estado.atrasada { color: var(--warn); font-weight: 600; }
+.revisar { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--e3); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 16px; }
+.revisar-fila { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.revisar h2 { font-size: 16px; margin: 0; }
+.revisar ul { margin: 8px 0 0; padding-left: 0; list-style: none; }
+.revisar li { font-size: 14px; padding: 6px 0; border-top: 1px solid var(--border); }
+.revisar li:first-child { border-top: none; }
+.revisar .propuesta { font-size: 13px; color: var(--text-2); }
+
 .metricas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 24px; }
 .metrica { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
 .metrica .valor { font-size: 22px; font-weight: 650; line-height: 1.2; font-variant-numeric: tabular-nums; }
@@ -192,7 +202,11 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
       <h1 id="titulo">Tablero de búsquedas</h1>
     </div>
     <div class="top-right">
-      <span class="mono muted" id="conteo"></span>
+      <div class="top-fila">
+        <span class="mono muted" id="conteo"></span>
+        <button class="btn" id="btn-sync" title="Copia el pedido para que Claude revise Gmail y Google Calendar">🔄 SYNC</button>
+      </div>
+      <span class="faint" style="font-size:12px" id="sync-estado"></span>
       <span class="faint" style="font-size:12px" id="actualizado"></span>
     </div>
   </header>
@@ -209,6 +223,7 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
         <li>Elegí una búsqueda en <strong>Cartera</strong> para ver su pipeline de candidatos.</li>
         <li>Lo que marques acá (una acción hecha, un candidato movido de etapa, una nota) queda como <strong>cambio pendiente</strong> en este navegador. Tocá <strong>Copiar pedido para Claude</strong>, pegalo en Claude Code y Claude lo pasa al archivo. Cuando el archivo ya lo refleja, el cambio pendiente desaparece solo.</li>
         <li>El botón <strong>⚡</strong> copia un pedido listo para que Claude te ayude con esa tarea o esa alerta.</li>
+        <li><strong>🔄 SYNC</strong> copia el pedido para que Claude revise Gmail y Google Calendar y traiga las novedades de las búsquedas. Si activaron la sincronización automática (<code>/sincronizar-correo configurar</code>), corre sola cada 2 horas en horario laboral mientras la app de Claude esté abierta. Lo dudoso aparece en «Para revisar».</li>
         <li>La evaluación de cada candidato (✅ 🟡 ❌ ❓) cuenta criterios del scorecard. No es un puntaje ni un ranking: la decisión es de una persona.</li>
       </ol>
     </details>
@@ -526,6 +541,56 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
       }).join("") + "</ul></section>";
   }
 
+  // ---------- sincronización con Gmail y Calendar ----------
+  function aFechaHora(s) {
+    if (!s || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(s)) return null;
+    var p = s.slice(0, 16).split(/[-T:]/);
+    return new Date(+p[0], +p[1] - 1, +p[2], +p[3], +p[4]);
+  }
+  function haceCuanto(d) {
+    var min = Math.round((Date.now() - d.getTime()) / 60000);
+    if (min < 1) return "recién";
+    if (min < 60) return "hace " + min + " min";
+    var h = Math.round(min / 60);
+    if (h < 24) return "hace " + plural(h, "hora", "horas");
+    return "hace " + plural(Math.round(h / 24), "día", "días");
+  }
+  function estadoSync() {
+    var s = (datos && datos.sync) || {};
+    var ult = aFechaHora(s.ultima);
+    var partes = [ult ? "Gmail y Calendar: " + haceCuanto(ult) : "Gmail y Calendar: nunca sincronizado"];
+    var atrasada = false;
+    if (s.programada) {
+      partes.push("automática " + (s.horario || "cada 2 h"));
+      var ahora = new Date(), h = ahora.getHours(), dia = ahora.getDay();
+      // En horario laboral la automática no debería pasar 3 horas sin correr.
+      if (dia >= 1 && dia <= 5 && h >= 9 && h <= 20 && (!ult || (Date.now() - ult.getTime()) > 3 * 3600000)) atrasada = true;
+    } else {
+      partes.push("automática apagada");
+    }
+    var texto = partes.join(" · ");
+    if (s.error) { texto += " · ⚠️ " + s.error; atrasada = true; }
+    else if (atrasada) texto += " · ⚠️ atrasada: ¿está abierta la app de Claude?";
+    return { texto: texto, atrasada: atrasada };
+  }
+  function htmlRevisar() {
+    var items = (datos && datos.sync && datos.sync.porRevisar) || [];
+    if (!items.length) return "";
+    return '<section class="revisar" aria-labelledby="revisar-titulo"><div class="revisar-fila"><h2 id="revisar-titulo">Para revisar · ' +
+      plural(items.length, "novedad", "novedades") + ' de Gmail y Calendar</h2>' +
+      '<button class="btn btn-sm" id="revisar-correo">Revisar con Claude</button></div><ul>' +
+      items.map(function (r) {
+        var b = r.busqueda ? buscarBusqueda(r.busqueda) : null;
+        var k = b && r.candidato ? buscarCandidato(b.id, r.candidato) : null;
+        return "<li>" + (r.alerta ? '<span class="tag tag-vencida">⚠️ Cuidado</span> ' : "") +
+          '<span class="mono">' + esc(r.fecha ? fechaCorta(r.fecha) : "") + "</span> " +
+          '<span class="tag">' + esc(r.fuente === "calendar" ? "Calendar" : "Gmail") + "</span> " +
+          (b ? '<span class="tag">' + esc(nombreCliente(b.cliente)) + "</span> " : "") +
+          (k ? '<span class="tag">' + esc(k.nombre) + "</span> " : "") + esc(r.resumen) +
+          (r.propuesta ? '<div class="propuesta">Propuesta: ' + esc(r.propuesta) + "</div>" : "") + "</li>";
+      }).join("") + "</ul></section>";
+  }
+
   function htmlMetricas() {
     var m = metricas();
     var alDia = m.devTotal ? Math.round(100 * (m.devTotal - m.devPend) / m.devTotal) : null;
@@ -712,8 +777,13 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
       if (el.id && el.value) borradores[el.id] = el.value;
     });
 
+    var es = estadoSync();
+    var se = document.getElementById("sync-estado");
+    se.textContent = es.texto;
+    se.className = es.atrasada ? "atrasada" : "faint";
+
     var sel = busquedaElegida();
-    cont.innerHTML = htmlCambios() + htmlHoy() + htmlAlertas() + htmlMetricas() +
+    cont.innerHTML = htmlCambios() + htmlHoy() + htmlRevisar() + htmlAlertas() + htmlMetricas() +
       '<div class="grid-main">' + htmlAgenda() + "<div>" + htmlCartera(sel) + htmlPipeline(sel) + "</div></div>";
 
     Array.prototype.forEach.call(cont.querySelectorAll("details"), function (d, i) {
@@ -741,6 +811,12 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
     if (b.id === "salir-ejemplo") { location.search = ""; return; }
     if (b.id === "cerrar-dialogo") { document.getElementById("dialogo-copia").close(); return; }
     if (b.id === "copiar-cambios") { copiar(pedidoCambios(), "Pedido copiado. Pegalo en Claude Code."); return; }
+    if (b.id === "btn-sync") {
+      copiar("/sincronizar-correo\n\nRevisá Gmail y Google Calendar y actualizá las búsquedas" + (cambios.length ? ".\n\nAntes, aplicá estos cambios que marqué en el tablero:\n" + cambios.map(function (c) { return "- " + describirCambio(c); }).join("\n") : "."),
+        "Pedido de SYNC copiado. Pegalo en Claude Code.");
+      return;
+    }
+    if (b.id === "revisar-correo") { copiar("/sincronizar-correo revisar", "Pedido copiado. Pegalo en Claude Code."); return; }
     if (b.hasAttribute("data-elegir")) { elegida = b.getAttribute("data-elegir"); guardar("elegida", elegida); render(); return; }
     if (b.hasAttribute("data-quitar")) { quitarCambio(+b.getAttribute("data-quitar")); return; }
     if (b.hasAttribute("data-hecha")) { sumarCambio({ tipo: "hecha", id: b.getAttribute("data-hecha") }); toast("Marcada. Acordate de pasarle el cambio a Claude."); return; }
