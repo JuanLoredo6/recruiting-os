@@ -22,13 +22,13 @@ Hablá en rioplatense, con voseo, corto.
 
 | Novedad | Etapa | Además |
 |---|---|---|
-| Se le escribió por primera vez | `contactado` | — |
-| Respondió y acepta charlar, o se postuló | `screening` | `consentimiento` = la fecha, si no tenía |
+| Se le escribió por primera vez, se postuló o llegó por un referido | `contactado` | Si se postuló o llegó por un referido que le avisó: `consentimiento` = la fecha |
+| Respondió y acepta charlar, o la consultora decide entrevistarlo | `screening` | `consentimiento` = la fecha, si no tenía |
 | La consultora lo presenta al cliente | `entrevista-cliente` | — |
 | Queda en la terna | `terna` | — |
 | El cliente le hace una oferta | `oferta` | Búsqueda en `oferta` |
 | Acepta e ingresa | `contratado` | Ver «Cerrar una búsqueda» |
-| La consultora o el cliente lo descartan | `descartado` | `motivo` obligatorio; `devolucion: "pendiente"` si llegó al menos a `screening` |
+| La consultora o el cliente lo descartan | `descartado` | `motivo` obligatorio; `devolucion: "pendiente"` si tiene `consentimiento` (se postuló o aceptó una charla) |
 | Se retira, rechaza la oferta o no responde más | `retirado` | `motivo` con lo que dijo; `devolucion: "no-aplica"` salvo que corresponda un cierre |
 
 3. **El motivo** de un descarte se escribe en términos del scorecard ("no cumple el criterio 2: nunca lideró un equipo") o de lo que dijo el cliente, con 📌 si es literal. **Nunca con un atributo protegido.** Si el cliente descartó por algo así ("lo vi grande", "preferimos un varón"), no lo copies como motivo: marcalo ⚠️, avisale a la persona y preguntá cómo quiere registrarlo y si quiere hablarlo con el cliente.
@@ -54,7 +54,7 @@ Actualizá `proximo` (el próximo paso concreto) y `ultimaNovedad`, y sumá una 
 
 ### Cerrar una búsqueda
 
-1. Cada candidato que todavía esté activo pasa a `descartado` o `retirado`, con motivo. Los que llegaron al menos a `screening` quedan con `devolucion: "pendiente"` y su acción, salvo que la persona diga que ya se la dio.
+1. Cada candidato que todavía esté activo pasa a `descartado` o `retirado`, con motivo. Los descartados con `consentimiento` quedan con `devolucion: "pendiente"` y su acción, salvo que la persona diga que ya se la dio.
 2. Recalculá `borrarEl` de cada candidato con `contexto/privacidad.md`, desde la fecha de cierre. Si alguno aceptó quedar en la base de talento, usá ese plazo y anotalo en su historial.
 3. Ofrecé una retro corta con `/reporte-semanal <cliente-rol> cierre`.
 

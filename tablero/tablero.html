@@ -595,8 +595,8 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
     var m = metricas();
     var alDia = m.devTotal ? Math.round(100 * (m.devTotal - m.devPend) / m.devTotal) : null;
     return '<div class="metricas">' +
-      '<div class="metrica"><div class="valor">' + m.abiertas + '</div><div class="etiqueta">búsquedas abiertas' + (m.prom != null ? " · " + m.prom + " días promedio" : "") + "</div></div>" +
-      '<div class="metrica"><div class="valor">' + m.activos + '</div><div class="etiqueta">candidatos activos · ' + m.enTerna + " en terna u oferta</div></div>" +
+      '<div class="metrica"><div class="valor">' + m.abiertas + '</div><div class="etiqueta">' + (m.abiertas === 1 ? "búsqueda abierta" : "búsquedas abiertas") + (m.prom != null ? " · " + plural(m.prom, "día", "días") + " en promedio" : "") + "</div></div>" +
+      '<div class="metrica"><div class="valor">' + m.activos + '</div><div class="etiqueta">' + (m.activos === 1 ? "candidato activo" : "candidatos activos") + " · " + m.enTerna + " en terna u oferta</div></div>" +
       '<div class="metrica"><div class="valor"' + (m.devPend ? ' style="color:var(--warn)"' : "") + ">" + (alDia == null ? "—" : alDia + "%") + '</div><div class="etiqueta">devoluciones al día' + (m.devPend ? " · " + plural(m.devPend, "pendiente", "pendientes") : "") + "</div></div>" +
       '<div class="metrica"><div class="valor"' + (m.vencidas ? ' style="color:var(--danger)"' : "") + ">" + m.vencidas + '</div><div class="etiqueta">' + (m.vencidas === 1 ? "acción vencida" : "acciones vencidas") + "</div></div>" +
       "</div>";
