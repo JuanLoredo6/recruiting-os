@@ -1,6 +1,7 @@
 ---
 name: reporte-semanal
 description: "Hace dos cosas con el tablero: el repaso interno de la cartera (qué se hizo, búsquedas trabadas, candidatos sin movimiento, devoluciones atrasadas, borrados vencidos, tres prioridades para la semana) y el reporte para el cliente de una búsqueda (embudo, candidatos en proceso con su evidencia, lo que se aprendió del mercado, lo que se necesita del cliente y el próximo paso), listo para revisar y mandar. Al cerrar una búsqueda arma la retro. Usala cuando digan /reporte-semanal, 'cómo vamos', 'repasemos la semana', 'armá el reporte para el cliente', 'qué le cuento a Carla', 'por qué está trabada esta búsqueda', 'cerramos la búsqueda, hagamos la retro', o los viernes."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # reporte-semanal — la cartera en 10 minutos y el cliente al día

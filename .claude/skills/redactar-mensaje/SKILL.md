@@ -1,6 +1,7 @@
 ---
 name: redactar-mensaje
 description: "Escribe los mensajes de una búsqueda con la voz de la consultora y nunca los envía: primer contacto de sourcing, invitación de conexión, follow-up, invitación a entrevista, devolución a un candidato descartado (con feedback útil y sin atributos protegidos), cierre con quienes no avanzaron, mensajes al hiring manager (preguntas del arranque, guía para entrevistar, pedido de feedback), oferta y bienvenida. Adapta el largo al canal (LinkedIn, mail, WhatsApp) y usa solo datos reales del rol y del candidato. Usala cuando digan 'escribile a X', 'armá la devolución para Y', 'cómo le digo que no avanza', 'mandale un follow-up', 'escribile al hiring manager', 'necesito un mensaje para', o desde una acción del tablero."
+license: "MIT. Adapta material de Paweł Huryn (MIT); ver CREDITOS.md y .claude/skills/LICENSE-phuryn.txt."
 ---
 
 # redactar-mensaje — mensajes que suenan a la consultora

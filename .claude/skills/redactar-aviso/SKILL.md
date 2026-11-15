@@ -1,6 +1,7 @@
 ---
 name: redactar-aviso
 description: "Redacta el aviso de una búsqueda a partir del perfil del rol y su scorecard: un título que la gente busca, qué va a lograr la persona, el contexto real del equipo, excluyentes y deseables separados (pocos y observables), condiciones, proceso y tiempos, con lenguaje inclusivo y sin requisitos discriminatorios. Entrega versiones para LinkedIn, portales de LATAM y la web del cliente, con sus largos, y revisa un aviso que ya existe. Nunca lo publica. Usala cuando digan 'armá el aviso', 'necesito publicar la búsqueda', 'revisá este aviso', 'el aviso no trae a nadie', 'pasalo a LinkedIn', o desde una acción del tablero."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # redactar-aviso — un aviso que atrae a quien cumple

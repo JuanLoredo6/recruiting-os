@@ -1,6 +1,7 @@
 ---
 name: actualizar
 description: "Lleva al tablero cualquier novedad de una búsqueda: un candidato que respondió, una entrevista agendada, feedback del cliente, un descarte, un candidato que se retira, una oferta, un ingreso, una búsqueda que se pausa o se cierra, una tarea hecha o los cambios que marcaste en el tablero y copiaste como pedido. Mueve candidatos de etapa, actualiza la búsqueda, anota el historial, marca las devoluciones pendientes, recalcula las fechas de borrado al cerrar y crea o cierra las acciones que siguen. Usala cuando digan 'respondió X', 'el cliente quiere ver a Y', 'descartaron a Z', 'X aceptó la oferta', 'se cayó la búsqueda', 'ya mandé la devolución', 'actualizá el tablero', o cuando peguen un pedido que empieza con 'Cambios desde el tablero'."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # actualizar — mantener el tablero al día

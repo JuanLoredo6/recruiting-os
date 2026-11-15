@@ -1,6 +1,7 @@
 ---
 name: aprendizajes
 description: "Junta el feedback real de varias búsquedas (motivos de descarte del cliente, motivos de retiro de candidatos, registros de entrevistas, retros de cierre, el historial del tablero) y lo convierte en patrones con evidencia: qué valora de verdad cada cliente o tipo de cliente, por qué se caen los candidatos, en qué etapa pierde la consultora y qué ajustar primero según el objetivo. Nada entra sin una cita literal. Escribe el Informe de aprendizajes. Usala cuando digan 'qué aprendimos', 'por qué se nos caen los candidatos', 'qué busca de verdad este cliente', 'por qué perdemos búsquedas', después de cerrar varias búsquedas o cada trimestre."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # aprendizajes — el Informe de aprendizajes

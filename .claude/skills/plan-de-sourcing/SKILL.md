@@ -1,6 +1,7 @@
 ---
 name: plan-de-sourcing
 description: "Diseña cómo encontrar candidatos para una búsqueda: a quién buscar según lo que hizo (no según el cargo), las empresas y equipos fuente, las búsquedas booleanas para LinkedIn y Google, los pedidos de referidos, la base propia de la consultora y las comunidades, con el mensaje de contacto para cada canal. No navega ni actúa en LinkedIn: arma todo para que la persona lo haga. Usala cuando digan 'dónde busco', 'armá las búsquedas booleanas', 'no encuentro candidatos', 'a quién le pido referidos', 'de qué empresas saco perfiles', o después de nueva-busqueda."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # plan-de-sourcing — buscar por lo que hicieron, no por el cargo

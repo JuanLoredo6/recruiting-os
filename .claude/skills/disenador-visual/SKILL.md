@@ -1,6 +1,7 @@
 ---
 name: disenador-visual
 description: "Especifica una pieza visual de la consultora antes de hacerla (la presentación de una terna, el reporte a un cliente, una propuesta comercial, el one-pager de una búsqueda, una presentación de servicios), pantalla por pantalla o diapositiva por diapositiva: propósito, lector, jerarquía, contenido real de cada bloque y criterios visuales. Después revisa si la sesión tiene con qué construirla y recién ahí lo ofrece. Usala cuando digan 'quiero que el reporte se vea mejor', 'armá la presentación de la terna', 'necesito una propuesta para un cliente', 'armame un one-pager', o cuando otro skill necesite criterio visual."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # disenador-visual — la especificación visual y su construcción

@@ -1,6 +1,7 @@
 ---
 name: guia-de-entrevista
 description: "Arma la guía de una entrevista con criterio, no un cuestionario genérico: la guía base de la búsqueda (qué etapa evalúa qué criterio del scorecard, preguntas de comportamiento y de caso, qué es una buena respuesta y qué es una señal de alerta), la guía para un candidato concreto (cruza su CV con los desafíos del rol y ataca primero los criterios en ❓ o 🟡) y la guía para que el hiring manager entreviste mejor (entrevista estructurada, cómo plantear un caso de Producto o de Atención al cliente, cómo registrar lo observado). Trae el criterio de un líder de Producto y el de un líder de Atención al cliente. Usala cuando digan 'tengo un screening con X', 'armá la guía de entrevista', 'qué le pregunto', 'preparame la entrevista de Y', 'el hiring manager no sabe qué preguntar', 'armá un caso para la entrevista', o desde una acción del tablero."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # guia-de-entrevista — preguntar lo que el scorecard necesita saber

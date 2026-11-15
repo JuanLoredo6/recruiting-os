@@ -1,6 +1,7 @@
 ---
 name: mapeo-de-mercado
 description: "Investiga con fuentes públicas el mercado de talento para un rol: cuánta gente hace ese trabajo en la región, cuántos cumplen las condiciones de la búsqueda (seniority, idioma, modalidad, industria), qué empresas concentran ese talento, qué tan difícil es la búsqueda y, si se pide, rangos salariales con fuente y fecha. Cada número con su fuente y el supuesto que lo conecta con la búsqueda. Escribe el Informe de mercado. Usala cuando digan 'hay gente para esto?', 'qué tan difícil es esta búsqueda', 'de dónde saco perfiles', 'cuánto se paga un Head of CX en México', 'el cliente pide algo imposible?', o antes de aceptar una búsqueda."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # mapeo-de-mercado — el Informe de mercado de talento

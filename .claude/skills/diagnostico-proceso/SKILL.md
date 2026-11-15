@@ -1,6 +1,7 @@
 ---
 name: diagnostico-proceso
 description: "Entrevista socrática para entender por qué una búsqueda (o la forma de trabajar de la consultora) no avanza: separa el síntoma ('no hay candidatos', 'el cliente rechaza a todos', 'se nos caen en la oferta') de la causa, ubica el problema en una etapa del embudo, ordena la evidencia, exige un número que muestre si se resuelve y prioriza hasta tres hipótesis para probar. Escribe el Diagnóstico. Su modo métricas define qué medir: indicador principal, árbol de palancas, un número por hipótesis y antimétricas (velocidad a costa de calidad, candidatos sin devolución). Usala cuando una búsqueda se traba, cuando digan 'no sé qué pasa con esta búsqueda', 'el cliente no quiere a nadie', 'cómo medimos cómo trabajamos', 'qué número miramos', aunque no nombren el skill."
+license: "MIT. Adapta material de Pedro Romero Luna y de Paweł Huryn (MIT); ver CREDITOS.md, .claude/skills/LICENSE-ai-first-product-skills.txt y .claude/skills/LICENSE-phuryn.txt."
 ---
 
 # diagnostico-proceso — el Diagnóstico de una búsqueda

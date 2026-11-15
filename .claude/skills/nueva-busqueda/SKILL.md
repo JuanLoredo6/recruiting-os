@@ -1,6 +1,7 @@
 ---
 name: nueva-busqueda
 description: "Abre una búsqueda nueva a partir del arranque con el hiring manager (notas, transcripción, nota de voz pegada o la descripción que mandó el cliente): separa lo que el rol tiene que lograr de lo que el cliente pidió, pone a prueba los requisitos (inflados, contradictorios o discriminatorios), propone un scorecard de 5 a 8 criterios observables con su tipo, arma el perfil del rol, crea la carpeta y la tarjeta en el tablero y deja las preguntas para volver al cliente. La decisión sobre cada criterio es de la consultora y el cliente. Usala cuando digan 'tengo una búsqueda nueva', 'acá están las notas del arranque', 'el cliente me pasó esta descripción', 'armá el scorecard', 'ayudame a preparar el arranque con el hiring manager', o desde una acción del tablero."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # nueva-busqueda — el arranque y el scorecard

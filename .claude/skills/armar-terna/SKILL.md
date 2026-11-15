@@ -1,6 +1,7 @@
 ---
 name: armar-terna
 description: "Compara a los finalistas de una búsqueda contra el scorecard, criterio por criterio y con la evidencia de sus evaluaciones y entrevistas, para que la consultora decida quiénes van a la terna sin depender de la intuición, y arma la presentación de la terna al cliente (por candidato: trayectoria, evidencia por criterio, lo que falta validar, condiciones y riesgos). También ayuda al cliente a decidir entre dos finalistas. Claude nunca elige: muestra en qué se diferencian. Usala cuando digan 'armá la terna', 'quiénes presento', 'compará a X y a Y', 'el cliente no puede decidir entre dos', 'prepará la presentación de los finalistas', o desde una acción del tablero."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # armar-terna — decidir con el scorecard a la vista

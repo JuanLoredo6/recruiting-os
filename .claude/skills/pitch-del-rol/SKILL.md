@@ -1,6 +1,7 @@
 ---
 name: pitch-del-rol
 description: "Arma la propuesta del rol para el candidato: por qué alguien bueno, que hoy está bien en su trabajo, dejaría todo por este. Explora ángulos verdaderos a partir del perfil del rol, del cliente y de lo que dijeron candidatos reales (con la consultora eligiendo, nunca Claude), y escribe el mapa de valor del rol, el pitch de 30 segundos para el primer contacto, el de 2 minutos para el screening y las respuestas a las objeciones típicas. Usala cuando digan 'cómo vendo este rol', 'nadie responde los mensajes', 'qué le digo a un candidato pasivo', 'por qué alguien se cambiaría a esta empresa', 'armá el pitch', o después de nueva-busqueda."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # pitch-del-rol — por qué alguien bueno se cambiaría

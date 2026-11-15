@@ -1,6 +1,7 @@
 ---
 name: empezar
 description: "Pone en marcha el Recruiting OS la primera vez: da la bienvenida, pregunta qué material ya tiene la consultora (un Excel o CSV con búsquedas, notas de clientes, mensajes que usa, o el contexto armado con otra IA, con un prompt listo para traerlo), lo vuelca con confirmación, hace una entrevista corta con lo que falta (quiénes son, cómo trabajan, cómo tratan a los candidatos, su política de datos y su voz), carga clientes y búsquedas en curso, deja el tablero listo y explica qué sigue. Usala cuando escriban /empezar, 'arranquemos', 'primera vez', 'cómo empiezo', 'configurá el sistema', o cuando contexto/consultora.md no exista todavía."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # empezar — la puesta en marcha de la consultora

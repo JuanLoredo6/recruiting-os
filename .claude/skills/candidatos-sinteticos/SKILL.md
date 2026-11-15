@@ -1,6 +1,7 @@
 ---
 name: candidatos-sinteticos
 description: "Prueba un aviso, un mensaje de sourcing, el pitch del rol o una guía de entrevista contra candidatos simulados antes de usarlos con personas reales: un candidato pasivo que está bien donde está, uno escéptico, uno sobrecalificado, uno que cumple pero duda por la modalidad. Cada rasgo marcado como evidencia, dato público o suposición, cada reacción con el rasgo en que se apoya, y siempre un escéptico. Encuentra defectos y escribe la versión 2 de la pieza. No valida nada. Usala cuando digan 'probá este aviso', 'esto lo respondería alguien?', 'cómo lo leería un candidato', 'nadie responde, ¿qué está mal en el mensaje?', o antes de publicar o mandar algo importante."
+license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .claude/skills/LICENSE-ai-first-product-skills.txt."
 ---
 
 # candidatos-sinteticos — diagnóstico y versión 2 de la pieza

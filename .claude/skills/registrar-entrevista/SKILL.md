@@ -1,6 +1,7 @@
 ---
 name: registrar-entrevista
 description: "Registra una entrevista apenas termina: toma las notas, una nota de voz dictada o la transcripción de la llamada (de la consultora o del hiring manager), separa lo que el candidato dijo o hizo de la impresión de quien entrevistó, lo ordena criterio por criterio contra el scorecard con citas literales, actualiza la evaluación del candidato (✅ 🟡 ❌ ❓), deja lo que quedó abierto para la próxima etapa y propone el siguiente paso. No decide: la persona decide si avanza. Usala cuando digan 'terminé la entrevista con X', 'te paso la transcripción', 'acá están mis notas del screening', 'el hiring manager me mandó su feedback', 'registrá la entrevista', o desde una acción del tablero."
+license: "MIT. Adapta material de Paweł Huryn (MIT); ver CREDITOS.md y .claude/skills/LICENSE-phuryn.txt."
 ---
 
 # registrar-entrevista — lo que pasó, separado de lo que pareció

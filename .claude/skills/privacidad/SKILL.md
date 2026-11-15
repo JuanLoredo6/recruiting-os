@@ -1,6 +1,7 @@
 ---
 name: privacidad
 description: "Cuida los datos de los candidatos según contexto/privacidad.md: revisa qué venció (perfiles de sourcing sin contacto, búsquedas cerradas hace más del plazo), borra o anonimiza a un candidato cuando lo pide o cuando vence su plazo, registra un consentimiento o el permiso para la base de talento, y busca datos sensibles que no deberían estar en el sistema. Nunca borra sin mostrar antes qué y pedir confirmación. Usala cuando digan '/privacidad', 'qué datos tengo que borrar', 'X pidió que lo borremos', 'borrá a Y', 'Z aceptó quedar en la base', 'revisá si hay datos sensibles', o desde una alerta del tablero."
+license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
 # privacidad — los datos de los candidatos, en regla
