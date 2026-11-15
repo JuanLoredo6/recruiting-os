@@ -1,3 +1,4 @@
+// Recruiting OS · Licencia MIT (ver LICENSE en la raíz del repo).
 // Datos de ejemplo de una consultora ficticia, para mostrar el tablero en demos e implementaciones.
 // Todas las empresas y personas son inventadas. Las fechas se calculan desde hoy para que el ejemplo nunca quede viejo.
 // Se ven abriendo tablero.html?ejemplo (o con el botón "Ver el tablero con datos de ejemplo").

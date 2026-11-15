@@ -2,6 +2,7 @@
 """Valida busquedas/busquedas.json contra el modelo de datos de CLAUDE.md.
 
 Lo llama tablero/sincronizar.sh. Solo usa la biblioteca estándar.
+Recruiting OS · Licencia MIT (ver LICENSE en la raíz del repo).
 
 Uso: python validar.py <ruta al JSON>
 

@@ -6,6 +6,8 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 # guia-de-entrevista — preguntar lo que el scorecard necesita saber
 
+> El criterio de Producto (`criterio-producto.md`) está adaptado de `cpo`, de Pedro Romero Luna ([ai-first-product-skills](https://github.com/pedroromeroluna/ai-first-product-skills), licencia MIT), a través de `busqueda-laboral-os`.
+
 Una entrevista sin guía mide simpatía. Una guía armada contra el scorecard mide lo que el cliente dijo que importa, igual para todos los candidatos, y deja espacio para repreguntar lo que cada trayectoria no muestra.
 
 Hablá en rioplatense, con voseo, frases cortas. Si la entrevista es en inglés o en portugués, las preguntas van en ese idioma y las indicaciones en español.

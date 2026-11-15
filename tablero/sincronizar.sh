@@ -2,6 +2,7 @@
 # Valida busquedas/busquedas.json y regenera tablero/datos.js.
 # Lo corre solo un hook de Claude Code (.claude/settings.json) después de cada edición.
 # También se puede correr a mano: bash tablero/sincronizar.sh
+# Recruiting OS · Licencia MIT (ver LICENSE en la raíz del repo).
 #
 # Si el JSON está roto, no pisa datos.js (el tablero sigue mostrando lo último bueno)
 # y sale con código 2: Claude Code le muestra el error a Claude para que lo corrija.

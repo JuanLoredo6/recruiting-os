@@ -176,4 +176,4 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 
 ## Créditos
 
-Varias piezas son adaptaciones de los skills de Pedro Romero Luna (MIT) a través de `busqueda-laboral-os`; ver `CREDITOS.md`.
+El sistema tiene licencia MIT (`LICENSE`). Varias piezas son adaptaciones de los skills de Pedro Romero Luna y de Paweł Huryn, los dos con licencia MIT, a través de `busqueda-laboral-os`; ver `CREDITOS.md`. Si sumás o adaptás material de otra persona, nombrala en el encabezado del skill (`license:` y la nota «Adaptado de…») y en `CREDITOS.md`.

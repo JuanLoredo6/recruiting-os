@@ -4,6 +4,13 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 
 ## [Sin publicar]
 
+### Cambia
+
+- `CLAUDE.md` nombra también a Paweł Huryn en los créditos y pide acreditar cualquier material nuevo de terceros.
+- `README.md` y `CREDITOS.md` enlazan los tres repositorios de Paweł Huryn; `CREDITOS.md` abre con la licencia del sistema.
+- `guia-de-entrevista` acredita en su encabezado el criterio de Producto adaptado de Pedro Romero Luna.
+- Los archivos del tablero (`tablero.html`, `ejemplo.js`, `sincronizar.sh`, `validar.py`) declaran la licencia MIT.
+
 ## [0.3.2] - 2026-11-15
 
 Licencia y créditos en cada skill.

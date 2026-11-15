@@ -1,5 +1,7 @@
 # Créditos
 
+Todo el Recruiting OS tiene licencia MIT: ver [`LICENSE`](LICENSE). Las piezas adaptadas conservan además la licencia MIT de sus autores, cuyo texto completo va en `.claude/skills/`.
+
 Recruiting OS es una adaptación de [busqueda-laboral-os](https://github.com/JuanLoredo6/busqueda-laboral-os), de Juan Rodríguez Loredo (licencia MIT), al otro lado de la búsqueda: el de quien busca talento.
 
 ## Skills adaptados del pack de Pedro Romero Luna
@@ -31,7 +33,7 @@ Cada pieza adaptada lo dice en su encabezado.
 
 ## Piezas adaptadas de Paweł Huryn
 
-Licencia MIT; el texto está en [`.claude/skills/LICENSE-phuryn.txt`](.claude/skills/LICENSE-phuryn.txt).
+Piezas de los repositorios de **Paweł Huryn** ([pm-skills](https://github.com/phuryn/pm-skills), [product-engineering](https://github.com/phuryn/product-engineering) y [pm-brain](https://github.com/phuryn/pm-brain)), los tres con licencia MIT; el texto está en [`.claude/skills/LICENSE-phuryn.txt`](.claude/skills/LICENSE-phuryn.txt). Cada pieza adaptada lo dice en su encabezado.
 
 | Original | Adaptado |
 |---|---|

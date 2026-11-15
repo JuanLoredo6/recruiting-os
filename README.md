@@ -157,4 +157,4 @@ Cuando haya mejoras, pedile a Claude "actualizá el sistema" o corré `git pull`
 ## Créditos
 
 - Sistema armado por Juan Rodríguez Loredo. Licencia MIT: ver [LICENSE](LICENSE).
-- Varias piezas son adaptaciones de los skills de producto de **Pedro Romero Luna** ([ai-first-product-skills](https://github.com/pedroromeroluna/ai-first-product-skills)) y de **Paweł Huryn**, ambos con licencia MIT. Detalle en [CREDITOS.md](CREDITOS.md).
+- Varias piezas son adaptaciones de los skills de producto de **Pedro Romero Luna** ([ai-first-product-skills](https://github.com/pedroromeroluna/ai-first-product-skills)) y de **Paweł Huryn** ([pm-skills](https://github.com/phuryn/pm-skills), [product-engineering](https://github.com/phuryn/product-engineering) y [pm-brain](https://github.com/phuryn/pm-brain)), ambos con licencia MIT. Detalle en [CREDITOS.md](CREDITOS.md).
