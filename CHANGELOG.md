@@ -4,6 +4,15 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 
 ## [Sin publicar]
 
+## [0.3.2] - 2026-11-15
+
+Licencia y créditos en cada skill.
+
+### Cambia
+
+- Cada `SKILL.md` declara su licencia en el encabezado (`license:`). Los skills adaptados nombran a Pedro Romero Luna, a Paweł Huryn o a los dos, y remiten a su texto de licencia.
+- La nota del `LICENSE` raíz también nombra a Paweł Huryn y su licencia, `.claude/skills/LICENSE-phuryn.txt`.
+
 ## [0.3.1] - 2026-11-15
 
 Instalación ajustada al repositorio público.
@@ -69,7 +78,8 @@ Base del sistema y núcleo para los primeros pilotos (fases 0 y 1).
 - Hook de Claude Code que valida `busquedas.json` con `validar.py` y regenera `datos.js` después de cada edición.
 - Licencia MIT y créditos a los skills de origen.
 
-[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.1...HEAD
+[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.2...HEAD
+[0.3.2]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.1.0...v0.2.0
