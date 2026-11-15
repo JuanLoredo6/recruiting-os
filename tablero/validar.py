@@ -211,11 +211,20 @@ def main(ruta):
 
     sync = datos.get("sync")
     if isinstance(sync, dict):
+        fecha(sync.get("ultima"), "sync.ultima", hora=True)
+        fecha(sync.get("ultimoIntento"), "sync.ultimoIntento", hora=True)
         for j, r in enumerate(sync.get("porRevisar") or []):
             if isinstance(r, dict) and r.get("fuente") not in FUENTES:
                 problemas.append(f"sync.porRevisar[{j}]: fuente {r.get('fuente')!r} no es gmail ni calendar")
-            if isinstance(r, dict) and r.get("busqueda") is not None and r["busqueda"] not in ids_busquedas:
-                problemas.append(f"sync.porRevisar[{j}]: apunta a la búsqueda {r['busqueda']!r}, que no existe")
+            if not isinstance(r, dict):
+                continue
+            rb, rc = r.get("busqueda"), r.get("candidato")
+            if rb is not None and rb not in ids_busquedas:
+                problemas.append(f"sync.porRevisar[{j}]: apunta a la búsqueda {rb!r}, que no existe")
+            if rc is not None and rb in candidatos_por_busqueda and rc not in candidatos_por_busqueda[rb]:
+                problemas.append(f"sync.porRevisar[{j}]: el candidato {rc!r} no está en la búsqueda {rb!r}")
+            if not r.get("resumen"):
+                problemas.append(f"sync.porRevisar[{j}]: falta el resumen")
 
     if problemas:
         print("busquedas.json no respeta el modelo de datos de CLAUDE.md:", file=sys.stderr)

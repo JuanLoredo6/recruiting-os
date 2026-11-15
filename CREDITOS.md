@@ -19,6 +19,14 @@ Cada pieza adaptada lo dice en su encabezado.
 |---|---|---|
 | `grill` | `poner-a-prueba` (y el método que citan `nueva-busqueda` y los demás) | Repregunta requisitos, evaluaciones, descartes y decisiones hasta que haya evidencia |
 | `cpo` | `guia-de-entrevista/criterio-producto.md` | Evaluar candidatos de Producto y armar casos |
+| `product-strategy` | `diagnostico-proceso` | Separa síntoma de causa y prioriza hipótesis sobre una búsqueda trabada |
+| `product-metrics` | `diagnostico-proceso`, modo métricas (`diagnostico-proceso/metricas.md`) | Indicador principal, palancas y antimétricas de la consultora |
+| `market-research` | `mapeo-de-mercado` | Dimensiona el talento disponible con fuentes citadas |
+| `ux-research` | `plan-de-sourcing` | A quién buscar por conducta, dónde y con qué mensaje |
+| `ideation-engine` y `prd` | `pitch-del-rol` | Ángulos y propuesta del rol para el candidato |
+| `synthetic-users` | `candidatos-sinteticos` | Prueba avisos, mensajes y pitch contra candidatos simulados |
+| `insight-engine` | `aprendizajes` | Convierte el feedback real de varias búsquedas en aprendizajes con evidencia |
+| `visual-designer` | `disenador-visual` | Especificar y construir ternas, reportes y propuestas |
 | `product-builder-resolver` | `mapa-de-skills` | El índice de skills |
 
 ## Piezas adaptadas de Paweł Huryn
@@ -30,3 +38,4 @@ Licencia MIT; el texto está en [`.claude/skills/LICENSE-phuryn.txt`](.claude/sk
 | `work-humanizer` ([product-engineering](https://github.com/phuryn/product-engineering)) | `redactar-mensaje`, sección «Revisión de voz» |
 | `summarize-interview` ([pm-skills](https://github.com/phuryn/pm-skills)) | `registrar-entrevista`, plantilla del registro |
 | Esquema de decisiones de [pm-brain](https://github.com/phuryn/pm-brain) | `poner-a-prueba`, «Qué la haría cambiar» |
+| `strategy-red-team` ([pm-skills](https://github.com/phuryn/pm-skills)) | `diagnostico-proceso`, «Primero la mejor versión» |

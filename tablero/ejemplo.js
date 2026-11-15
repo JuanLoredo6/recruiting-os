@@ -92,6 +92,13 @@ window.DATOS_EJEMPLO = function () {
       { id: "a-5", texto: "Reporte de la semana para Diego", busqueda: "tienda-sur-team-lead-soporte", candidato: null, fecha: d(3), prioridad: "media", hecha: false, hechaEl: null, pedido: "/reporte-semanal tienda-sur-team-lead-soporte" },
       { id: "a-6", texto: "Evaluar a Sofía contra el scorecard", busqueda: "nimbo-product-manager-sr", candidato: "sofia-m", fecha: d(-5), prioridad: "media", hecha: true, hechaEl: d(-5), pedido: "/evaluar-candidato nimbo-product-manager-sr sofia-m" }
     ],
-    sync: { ultima: null, ultimoIntento: null, programada: false, horario: "", error: null, procesados: [], porRevisar: [] }
+    sync: {
+      ultima: (function () { var x = new Date(Date.now() - 40 * 60000); return d(0) + "T" + String(x.getHours()).padStart(2, "0") + ":" + String(x.getMinutes()).padStart(2, "0"); })(),
+      ultimoIntento: null, programada: true, horario: "cada 2 h, de 8 a 20, lunes a viernes", error: null, procesados: [],
+      porRevisar: [
+        { id: "r1", fecha: d(0), fuente: "gmail", ref: "ejemplo-1", resumen: "Carla mandó su feedback de la entrevista con Joaquín: «sólido en pagos, me quedan dudas de cómo prioriza».", busqueda: "nimbo-product-manager-sr", candidato: "joaquin-r", propuesta: "Registrarlo con /registrar-entrevista: toca el criterio 2.", alerta: false },
+        { id: "r2", fecha: d(0), fuente: "gmail", ref: "ejemplo-2", resumen: "Paula Giménez pide que borren sus datos de la base.", busqueda: "tienda-sur-team-lead-soporte", candidato: "paula-g", propuesta: "Borrar hoy con /privacidad borrar y confirmarle por mail.", alerta: true }
+      ]
+    }
   };
 };

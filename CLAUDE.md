@@ -46,6 +46,8 @@ Las carpetas con datos están en `.gitignore`: los datos de la consultora, sus c
 busquedas/<cliente-rol>/
 ├── perfil-del-rol.md          Arranque con el hiring manager y scorecard (lo escribe nueva-busqueda)
 ├── guia-entrevista.md          Guía base de la búsqueda (guia-de-entrevista)
+├── aviso.md · pitch.md · sourcing.md   (redactar-aviso, pitch-del-rol, plan-de-sourcing)
+├── terna-<AAAA-MM-DD>.md       Presentación de la terna al cliente (armar-terna)
 ├── candidatos/<candidato>/
 │   ├── cv.pdf (o .md, .docx)   Tal cual llegó
 │   ├── evaluacion.md           Scorecard con evidencia (evaluar-candidato)
@@ -59,10 +61,11 @@ busquedas/<cliente-rol>/
 
 El índice completo, con recorridos típicos, está en `.claude/skills/mapa-de-skills/SKILL.md`. Resumen:
 
-- **Día a día:** `empezar`, `nueva-busqueda`, `evaluar-candidato`, `actualizar`, `guia-de-entrevista`, `registrar-entrevista`, `redactar-mensaje`, `reporte-semanal`.
-- **Criterio y cuidado:** `poner-a-prueba` (el método de entrevista que citan los demás), `privacidad`.
+- **Día a día:** `empezar`, `nueva-busqueda`, `redactar-aviso`, `evaluar-candidato`, `actualizar`, `sincronizar-correo`, `guia-de-entrevista`, `registrar-entrevista`, `armar-terna`, `redactar-mensaje`, `reporte-semanal`.
+- **Estrategia de la búsqueda:** `plan-de-sourcing`, `pitch-del-rol`, `mapeo-de-mercado`, `diagnostico-proceso`, `aprendizajes`.
+- **Criterio y cuidado:** `poner-a-prueba` (el método de entrevista que citan los demás), `candidatos-sinteticos`, `privacidad`, `disenador-visual`, `mapa-de-skills`.
 
-Algunos skills traen partes en archivos aparte, que el `SKILL.md` carga cuando hacen falta: `guia-de-entrevista/criterio-producto.md` y `guia-de-entrevista/criterio-atencion.md`.
+Algunos skills traen partes en archivos aparte, que el `SKILL.md` carga cuando hacen falta: `guia-de-entrevista/criterio-producto.md`, `guia-de-entrevista/criterio-atencion.md` y `diagnostico-proceso/metricas.md`.
 
 Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 
@@ -84,6 +87,7 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 4. El tablero muestra: **Hoy** (acciones del día), **Alertas** (devoluciones pendientes, búsquedas sin movimiento, borrados vencidos), **Lo que hay que hacer**, la **Cartera** de búsquedas y el **Pipeline** de candidatos de la búsqueda elegida.
 5. Lo que la persona marca en el tablero (acción hecha, nota, acción nueva) queda como cambio pendiente en su navegador. El tablero arma un pedido que empieza con "Cambios desde el tablero" para pegar en Claude Code; el skill `actualizar` lo aplica al JSON. Cuando el JSON ya refleja el cambio, el tablero lo borra solo.
 6. El botón ⚡ de cada acción copia su `pedido` más el contexto de la tarea, para pegar en Claude Code.
+7. El botón **🔄 SYNC** copia `/sincronizar-correo`: Claude revisa Gmail y Google Calendar con los conectores oficiales (solo lectura) y trae las novedades de las búsquedas. Puede correr sola cada 2 horas en horario laboral con una tarea programada (`/sincronizar-correo configurar`). Lo dudoso queda en `sync.porRevisar` y el tablero lo muestra en «Para revisar».
 
 **Después de editar el JSON:** si el hook devuelve un error de validación, corregilo en el mismo turno antes de seguir. Si el hook no corrió, ejecutá `bash tablero/sincronizar.sh` desde la raíz del proyecto: valida y regenera.
 
@@ -143,13 +147,16 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
     }
   ],
   "sync": {
-    "ultima": null,
-    "ultimoIntento": null,
+    "ultima": "AAAA-MM-DDTHH:MM o null",
+    "ultimoIntento": "AAAA-MM-DDTHH:MM o null",
     "programada": false,
-    "horario": "",
+    "horario": "cada 2 h, de 8 a 20, lunes a viernes",
     "error": null,
-    "procesados": [],
-    "porRevisar": []
+    "procesados": ["ids de hilos de Gmail y eventos de Calendar ya revisados (máximo 500)"],
+    "porRevisar": [
+      { "id": "r-20261114-1", "fecha": "AAAA-MM-DD", "fuente": "gmail | calendar", "ref": "id del hilo o evento",
+        "resumen": "Una línea", "busqueda": "id o null", "candidato": "id o null", "propuesta": "Qué cambio harías", "alerta": false }
+    ]
   }
 }
 ```
@@ -160,7 +167,7 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 - `consentimiento`: fecha en que el candidato aceptó que la consultora guarde sus datos para esta búsqueda (postularse a un aviso, aceptar una charla o decirlo por escrito), o `null` si todavía no hubo contacto (un perfil identificado por sourcing).
 - `borrarEl`: la fecha en que hay que borrar o anonimizar al candidato, según `contexto/privacidad.md`. La calcula el skill que crea al candidato y la actualiza `actualizar` cuando la búsqueda se cierra.
 - `motivo` es obligatorio en `descartado` y `retirado`, y se escribe en términos del scorecard o de lo que dijo el candidato, nunca con atributos protegidos.
-- `sync` queda reservado para la sincronización con Gmail y Calendar (próxima versión). Si el JSON no lo tiene, agregalo con los valores vacíos de `plantillas/busquedas.json`.
+- `sync` lo escribe solo `sincronizar-correo`. Las líneas de `historial` que vienen de ahí llevan `"fuente": "gmail"` o `"fuente": "calendar"`. Si el JSON no tiene `sync`, agregalo con los valores vacíos de `plantillas/busquedas.json`.
 - Los `id` de acciones son únicos: `a-<AAAAMMDD>-<n>`. Toda acción con fecha relativa se guarda con fecha exacta. Una acción sin fecha va a «Sin fecha».
 - El `pedido` es lo que la persona pegaría en Claude Code para hacer la tarea: casi siempre un skill con el id de la búsqueda y, si corresponde, el del candidato (`/guia-de-entrevista acme-product-manager-sr maria-g`).
 - Actualizá `actualizado` en cada cambio y `ultimaNovedad` de la búsqueda y del candidato cuando algo les pasa.
