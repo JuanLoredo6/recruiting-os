@@ -29,14 +29,14 @@ Si falta saber algo esencial, preguntá en una sola ronda: a quién, por qué ca
 | **Follow-up** | 2 a 3 líneas | Referencia al mensaje anterior, un dato nuevo si lo hay, pregunta concreta. Uno solo; después, se deja |
 | **Invitación a entrevista** | Lo necesario | Quién entrevista, qué etapa es, duración, formato, qué conviene preparar (sin adelantar el caso), cómo reprogramar |
 | **Devolución a un descartado** | 4 a 7 líneas | Ver «La devolución» abajo |
-| **Cierre a quien no avanzó en sourcing** | 2 a 3 líneas | Agradecer el tiempo, decir que no sigue, si se puede guardar su perfil para otra búsqueda (con su permiso) |
+| **Cierre a quien no llegó a una entrevista** (se postuló o respondió un contacto) | 2 a 3 líneas | Agradecer el tiempo, decir que no sigue, si se puede guardar su perfil para otra búsqueda (con su permiso) |
 | **Al hiring manager** | Corto | Un pedido claro (preguntas del arranque, feedback de una entrevista, decisión sobre la terna), con fecha |
 | **Oferta** (en nombre del cliente) | Lo necesario | Solo los datos que el cliente confirmó por escrito. Nada de condiciones supuestas |
 | **Bienvenida o felicitación** | Corto | Fecha de ingreso, próximo paso, quién lo contacta |
 
 ## La devolución
 
-Es el mensaje que más se saltea y el que más dice de la consultora. Si el candidato llegó al menos al screening, recibe una devolución dentro del plazo de `contexto/consultora.md`.
+Es el mensaje que más se saltea y el que más dice de la consultora. Todo candidato que se postuló o aceptó una charla recibe una devolución dentro del plazo de `contexto/consultora.md`. Si no llegó a una entrevista, alcanza con el formato corto de «Cierre» (sin feedback detallado); si fue entrevistado, va la devolución completa de abajo.
 
 - **Clara desde la primera línea:** no avanza. Sin vueltas ni falsas esperanzas.
 - **Un motivo verdadero y útil**, en términos del scorecard, si la consultora decide darlo. Por ejemplo: "para este rol el cliente necesitaba a alguien que ya haya tenido métricas de producto a cargo, y en tu caso la experiencia es más de gestión de proyectos". Nunca la evaluación completa, nunca el feedback literal del cliente sin su permiso, nunca comparaciones con otros candidatos.

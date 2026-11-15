@@ -71,14 +71,14 @@ Evaluá uno por uno con el mismo detalle. Al final, una tabla resumen con nombre
 
 1. Creá `busquedas/<cliente-rol>/candidatos/<candidato>/`. Guardá ahí el CV tal cual llegó (si vino como archivo, movelo o copialo; si vino pegado, `cv.md`) y la evaluación en `evaluacion.md` desde `plantillas/evaluacion.md`.
 2. Sumá al candidato en la búsqueda dentro de `busquedas/busquedas.json`:
-   - `etapa`: `identificado` si salió de sourcing sin contacto todavía; `contactado` si ya hubo un mensaje; `screening` si se postuló al aviso y la persona decide avanzar.
+   - `etapa`: `identificado` si salió de sourcing sin contacto todavía; `contactado` si ya hubo contacto (le escribieron, se postuló al aviso o llegó por un referido); `screening` solo cuando la persona decide entrevistarlo.
    - `fuente`, `evaluacion` con el conteo, `ultimaNovedad`, `devolucion: "no-aplica"`, una línea de historial.
    - `consentimiento`: la fecha si se postuló, aceptó una charla o lo dijo por escrito; `null` si es sourcing sin contacto.
    - `borrarEl` según `contexto/privacidad.md`: sin consentimiento, hoy + el plazo de sourcing (30 días por defecto); con consentimiento, el plazo desde el cierre de la búsqueda, calculado sobre `objetivoCierre` o, si no hay, hoy + 12 meses. Se recalcula al cerrar la búsqueda.
 3. Actualizá `ultimaNovedad` de la búsqueda.
 4. Acciones según la decisión de la persona:
    - Avanza: "Contactar a <nombre>" (`/redactar-mensaje contacto <cliente-rol> <candidato>`) o "Preparar el screening de <nombre>" (`/guia-de-entrevista <cliente-rol> <candidato>`).
-   - Se descarta y se había postulado: pasa a `descartado` con `motivo` en términos del scorecard, `devolucion: "pendiente"` y la acción "Mandar devolución a <nombre>" (`/redactar-mensaje devolucion <cliente-rol> <candidato>`).
+   - Se descarta y se había postulado (o tuvo cualquier contacto con consentimiento): pasa a `descartado` con `motivo` en términos del scorecard, `devolucion: "pendiente"` y la acción "Mandar devolución a <nombre>" (`/redactar-mensaje devolucion <cliente-rol> <candidato>`).
    - Sourcing que no avanza: no hace falta devolución (`no-aplica`). Ofrecé borrarlo ya (`/privacidad borrar`), porque no hubo contacto.
 
 ## Modo revisar

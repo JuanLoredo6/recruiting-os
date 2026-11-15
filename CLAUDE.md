@@ -163,7 +163,8 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 
 - `resultado` solo se usa en `cerrada`: `cubierta`, `cubierta-por-otro` (el cliente contrató por otra vía), `cancelada`, `desierta`.
 - `evaluacion` es el conteo de criterios del scorecard según `evaluar-candidato` (✅, 🟡, ❌, ❓), o `null` si todavía no se evaluó. **No es un puntaje y no se usa para ordenar candidatos.**
-- `devolucion`: `pendiente` cuando un candidato que llegó al menos a `screening` fue descartado y todavía no recibió respuesta. `enviada` cuando la persona confirma que la mandó. `no-aplica` en el resto de los casos.
+- `etapa`: `identificado` es un perfil de sourcing sin contacto todavía. `contactado` es que hubo contacto en cualquier dirección: la consultora le escribió, o la persona se postuló al aviso o llegó por un referido. `screening` es que la consultora decidió entrevistarla.
+- `devolucion`: `pendiente` cuando un candidato con `consentimiento` (se postuló, aceptó una charla o lo dijo por escrito) fue descartado y todavía no recibió respuesta: quien se acercó a la consultora siempre recibe una. `enviada` cuando la persona confirma que la mandó. `no-aplica` en el resto de los casos (por ejemplo, un perfil de sourcing que nunca respondió, o alguien que se retiró por su cuenta).
 - `consentimiento`: fecha en que el candidato aceptó que la consultora guarde sus datos para esta búsqueda (postularse a un aviso, aceptar una charla o decirlo por escrito), o `null` si todavía no hubo contacto (un perfil identificado por sourcing).
 - `borrarEl`: la fecha en que hay que borrar o anonimizar al candidato, según `contexto/privacidad.md`. La calcula el skill que crea al candidato y la actualiza `actualizar` cuando la búsqueda se cierra.
 - `motivo` es obligatorio en `descartado` y `retirado`, y se escribe en términos del scorecard o de lo que dijo el candidato, nunca con atributos protegidos.
