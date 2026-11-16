@@ -35,6 +35,19 @@ Si un CV trae algo de esto, el archivo original queda tal cual llegó, pero nada
 
 <!-- Ajustá estos plazos si la consultora decide otros. Claude calcula `borrarEl` con estos números. -->
 
+## Lo que se comparte con el cliente (vista del cliente, opcional)
+
+Si la consultora comparte las búsquedas con el cliente en Google Sheets y Drive (skill `vista-cliente`):
+
+- **Quién entra:** solo candidatos que aceptaron ser presentados a ese cliente. Se anota la fecha en `presentadoEl`. Nada de perfiles de sourcing ni de candidatos en screening.
+- **Qué CV:** la versión limpia por defecto (sin documento, fecha de nacimiento, foto, estado civil, hijos, domicilio ni datos de contacto). El original, solo si el candidato lo acepta.
+- **Dónde:** en el Drive de la consultora, una carpeta por búsqueda, compartida con mails puntuales del cliente. Nunca con «cualquiera con el link».
+- **Hasta cuándo:** con Google Workspace, el acceso vence a los 30 días de la fecha objetivo de cierre (tope: un año). Con Gmail personal no se puede poner vencimiento: al cerrar la búsqueda la carpeta va a la papelera, y Drive la vacía a los 30 días.
+- **Lo que no controlamos:** lo que el cliente descarga, imprime o copia mientras tiene acceso. Se le avisa al candidato cuando acepta ser presentado.
+- **Al borrar a un candidato:** su CV en Drive va a la papelera y su fila sale del Sheet en la próxima publicación.
+
+<!-- Ajustá el plazo del acceso si la consultora decide otro. -->
+
 ## Qué es borrar
 
 Se elimina la carpeta del candidato y en `busquedas.json` queda solo una entrada anónima (`id` del tipo `anonimo-1`, etapa, fuente y motivo), para que las métricas de la búsqueda sigan cerrando. Ningún nombre, link ni texto que lo identifique.

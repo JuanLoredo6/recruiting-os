@@ -25,7 +25,8 @@ Hablá en rioplatense, con voseo, corto.
 |---|---|---|
 | Se le escribió por primera vez, se postuló o llegó por un referido | `contactado` | Si se postuló o llegó por un referido que le avisó: `consentimiento` = la fecha |
 | Respondió y acepta charlar, o la consultora decide entrevistarlo | `screening` | `consentimiento` = la fecha, si no tenía |
-| La consultora lo presenta al cliente | `entrevista-cliente` | — |
+| Aceptó ser presentado al cliente (lo confirma la persona) | — | `presentadoEl` = la fecha. Necesita `consentimiento` |
+| La consultora lo presenta al cliente | `entrevista-cliente` | `presentadoEl` si no tenía: si no hay constancia de que aceptó, preguntá antes |
 | Queda en la terna | `terna` | — |
 | El cliente le hace una oferta | `oferta` | Búsqueda en `oferta` |
 | Acepta e ingresa | `contratado` | Ver «Cerrar una búsqueda» |
@@ -36,6 +37,7 @@ Hablá en rioplatense, con voseo, corto.
 4. **Actualizá** `ultimaNovedad` del candidato y de la búsqueda, y sumá al `historial` del candidato una línea con fecha y lo que pasó (con quién, cuándo, qué se dijo).
 5. **Feedback del cliente sobre un candidato:** guardalo literal en `busquedas/<cliente-rol>/candidatos/<candidato>/feedback-<AAAA-MM-DD>.md` y en el historial dejá una línea con el link. Si cambia la lectura de algún criterio, ofrecé actualizar `evaluacion.md` con `/registrar-entrevista`.
 6. **Devolución enviada:** si la persona confirma que la mandó, `devolucion: "enviada"` y cerrá la acción.
+7. **Decisión del cliente en la vista del cliente** (un ítem de «Para revisar» con `"fuente": "sheets"`): se aplica igual que cualquier novedad, solo cuando la persona la confirma. `decisionCliente` no se toca: es lo que leyó `vista-cliente`.
 
 ## Novedades de la búsqueda
 
@@ -57,7 +59,8 @@ Actualizá `proximo` (el próximo paso concreto) y `ultimaNovedad`, y sumá una 
 
 1. Cada candidato que todavía esté activo pasa a `descartado` o `retirado`, con motivo. Los descartados con `consentimiento` quedan con `devolucion: "pendiente"` y su acción, salvo que la persona diga que ya se la dio.
 2. Recalculá `borrarEl` de cada candidato con `contexto/privacidad.md`, desde la fecha de cierre. Si alguno aceptó quedar en la base de talento, usá ese plazo y anotalo en su historial.
-3. Ofrecé una retro corta con `/reporte-semanal <cliente-rol> cierre`.
+3. Si la búsqueda tiene `vistaCliente` sin `revocada`, creá la acción "Cerrar el acceso del cliente" para hoy, prioridad alta, con pedido `/vista-cliente cerrar <cliente-rol>`. Mientras no se cierre, el cliente sigue viendo la carpeta y los CVs.
+4. Ofrecé una retro corta con `/reporte-semanal <cliente-rol> cierre`.
 
 ## Acciones
 
@@ -67,6 +70,7 @@ Actualizá `proximo` (el próximo paso concreto) y `ultimaNovedad`, y sumá una 
   - Después de una entrevista: "Registrar la entrevista con <nombre>" para hoy (`/registrar-entrevista <cliente-rol> <candidato>`).
   - Descarte con devolución pendiente: "Mandar devolución a <nombre>" dentro del plazo de `contexto/consultora.md` (`/redactar-mensaje devolucion <cliente-rol> <candidato>`).
   - Contacto sin respuesta: "Follow-up a <nombre>" a los 4 o 5 días hábiles, con condición "solo si no respondió".
+  - Cambio en un candidato con `presentadoEl`, o en el `proximo` de una búsqueda con `vistaCliente` sin `revocada`: "Publicar cambios en la vista del cliente" para hoy (`/vista-cliente publicar <cliente-rol>`). Si ya hay una pendiente para esa búsqueda, no la dupliques.
 - **Fecha relativa a fecha exacta:** "el jueves" se convierte en AAAA-MM-DD a partir de hoy. Si es ambiguo, preguntá.
 - Actualizá `actualizado` en la raíz del JSON con la fecha y hora.
 

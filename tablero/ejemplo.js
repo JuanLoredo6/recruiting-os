@@ -24,14 +24,18 @@ window.DATOS_EJEMPLO = function () {
         hiringManager: "Carla Ruiz (Head of Product)", estado: "abierta", resultado: null,
         abierta: d(-18), objetivoCierre: d(12), proximo: "Presentar la terna el " + d(2), ultimaNovedad: d(-1),
         historial: [{ fecha: d(-18), texto: "Arranque con Carla: scorecard de 6 criterios" }],
+        vistaCliente: { carpeta: "ejemplo-carpeta", sheet: "ejemplo-sheet", url: "https://docs.google.com/spreadsheets/d/ejemplo", formato: "estandar",
+          compartidoCon: [{ mail: "carla@nimbo.example", desde: d(-4), vence: null }],
+          ultimaPublicacion: d(-1) + "T18:10", ultimaLectura: d(0) + "T09:30", revocada: null },
         candidatos: [
           { id: "martina-l", nombre: "Martina López", fuente: "Referido", etapa: "terna", motivo: null,
             evaluacion: { cumple: 5, parcial: 1, noCumple: 0, falta: 0 }, ultimaNovedad: d(-1), devolucion: "no-aplica",
-            consentimiento: d(-14), borrarEl: borrar,
+            consentimiento: d(-14), borrarEl: borrar, presentadoEl: d(-1), cvCompartido: "limpio",
+            decisionCliente: { valor: "Avanza", comentario: "Me gustó cómo defendió el no al programa de puntos.", leidaEl: d(0) },
             historial: [{ fecha: d(-14), texto: "Screening: lideró el rediseño del checkout" }, { fecha: d(-1), texto: "Entrevista con Carla: avanza" }] },
           { id: "joaquin-r", nombre: "Joaquín Ríos", fuente: "LinkedIn", etapa: "entrevista-cliente", motivo: null,
             evaluacion: { cumple: 4, parcial: 1, noCumple: 0, falta: 1 }, ultimaNovedad: d(-3), devolucion: "no-aplica",
-            consentimiento: d(-12), borrarEl: borrar,
+            consentimiento: d(-12), borrarEl: borrar, presentadoEl: d(-4), cvCompartido: "limpio", decisionCliente: null,
             historial: [{ fecha: d(-3), texto: "Entrevista con Carla agendada para el " + d(1) }] },
           { id: "sofia-m", nombre: "Sofía Méndez", fuente: "Aviso", etapa: "screening", motivo: null,
             evaluacion: { cumple: 3, parcial: 1, noCumple: 0, falta: 2 }, ultimaNovedad: d(-2), devolucion: "no-aplica",
@@ -98,7 +102,8 @@ window.DATOS_EJEMPLO = function () {
       ultimoIntento: null, programada: true, horario: "cada 2 h, de 8 a 20, lunes a viernes", error: null, procesados: [],
       porRevisar: [
         { id: "r1", fecha: d(0), fuente: "gmail", ref: "ejemplo-1", resumen: "Carla mandó su feedback de la entrevista con Joaquín: «sólido en pagos, me quedan dudas de cómo prioriza».", busqueda: "nimbo-product-manager-sr", candidato: "joaquin-r", propuesta: "Registrarlo con /registrar-entrevista: toca el criterio 2.", alerta: false },
-        { id: "r2", fecha: d(0), fuente: "gmail", ref: "ejemplo-2", resumen: "Paula Giménez pide que borren sus datos de la base.", busqueda: "tienda-sur-team-lead-soporte", candidato: "paula-g", propuesta: "Borrar hoy con /privacidad borrar y confirmarle por mail.", alerta: true }
+        { id: "r2", fecha: d(0), fuente: "gmail", ref: "ejemplo-2", resumen: "Paula Giménez pide que borren sus datos de la base.", busqueda: "tienda-sur-team-lead-soporte", candidato: "paula-g", propuesta: "Borrar hoy con /privacidad borrar y confirmarle por mail.", alerta: true },
+        { id: "r3", fecha: d(0), fuente: "sheets", ref: "ejemplo-sheet", resumen: "Carla marcó «Avanza» para Martina en la vista del cliente: «Me gustó cómo defendió el no al programa de puntos».", busqueda: "nimbo-product-manager-sr", candidato: "martina-l", propuesta: "Coordinar el caso con Carla y Pablo, y mover a Martina con /actualizar cuando esté agendado.", alerta: false }
       ]
     }
   };

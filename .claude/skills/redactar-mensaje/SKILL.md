@@ -31,6 +31,8 @@ Si falta saber algo esencial, preguntá en una sola ronda: a quién, por qué ca
 | **Invitación a entrevista** | Lo necesario | Quién entrevista, qué etapa es, duración, formato, qué conviene preparar (sin adelantar el caso), cómo reprogramar |
 | **Devolución a un descartado** | 4 a 7 líneas | Ver «La devolución» abajo |
 | **Cierre a quien no llegó a una entrevista** (se postuló o respondió un contacto) | 2 a 3 líneas | Agradecer el tiempo, decir que no sigue, si se puede guardar su perfil para otra búsqueda (con su permiso) |
+| **Pedido para presentar al cliente** (`consentimiento-presentacion`) | 3 a 5 líneas | A qué cliente y para qué rol (si la búsqueda es confidencial, preguntá qué se puede decir), qué se le va a mostrar al cliente (trayectoria, evaluación contra el scorecard, CV sin datos personales) y dónde (una carpeta de Drive de la consultora compartida con el cliente, si la búsqueda usa `vista-cliente`), que el cliente puede descargar lo que ve, y un sí o no fácil. Si acepta, `presentadoEl` se registra con `actualizar` |
+| **Aviso de la vista del cliente** (`aviso-vista-cliente`) | 4 a 6 líneas | El link del Sheet y el de la carpeta, que solo completa las dos columnas amarillas (decisión y comentario) y que el resto lo actualiza la consultora. Va al contacto confirmado en `vista-cliente compartir` |
 | **Al hiring manager** | Corto | Un pedido claro (preguntas del arranque, feedback de una entrevista, decisión sobre la terna), con fecha |
 | **Oferta** (en nombre del cliente) | Lo necesario | Solo los datos que el cliente confirmó por escrito. Nada de condiciones supuestas |
 | **Bienvenida o felicitación** | Corto | Fecha de ingreso, próximo paso, quién lo contacta |

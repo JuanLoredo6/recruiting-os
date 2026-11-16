@@ -113,6 +113,18 @@ Si la cuenta es de Google Workspace y el conector está bloqueado por la organiz
 
 Comprobación: una lectura de Gmail y una de Calendar funcionaron, o la persona eligió saltear la etapa.
 
+### Etapa 5b · Vista del cliente en Google Drive (opcional)
+
+Preguntá: «¿Le compartís a tus clientes el avance de las búsquedas en un Google Sheet o los CVs en una carpeta de Drive?». Si la respuesta es no, saltá esta etapa y anotalo.
+
+Si es sí, contale en dos líneas qué hace `vista-cliente`: arma esa carpeta y ese Sheet desde el sistema, protegidos, y el cliente solo completa dos columnas (su decisión y un comentario). El cliente no necesita Claude, solo Google.
+
+1. Revisá si tenés herramientas de **Google Drive** (crear archivos, compartir, ver permisos) y de **Google Sheets** (leer y actualizar planillas). Si faltan, los mismos pasos de la etapa 5 con **Google Drive** (y **Google Sheets** si aparece aparte), con la cuenta de la consultora: la carpeta del cliente va a ser de esa cuenta.
+2. Probá que funcionan, **solo leyendo**: listá los archivos recientes de Drive y decí cuántos encontraste, sin nombrarlos. No crees nada todavía: la primera carpeta se arma con `/vista-cliente crear` cuando haya una búsqueda.
+3. Preguntá si la cuenta es de **Google Workspace** o un **Gmail personal**. Con Gmail personal, el acceso del cliente no puede vencer solo: se cierra a mano al terminar cada búsqueda (`/vista-cliente cerrar`), y el tablero avisa si una búsqueda cerrada sigue compartida.
+
+Comprobación: una lectura de Drive funcionó, o la persona no comparte con sus clientes, o eligió dejarlo para después.
+
 ### Etapa 6 · Ver el tablero
 
 1. Pedile que abra `tablero/tablero.html` con doble clic (dale la ruta completa) y toque **Ver el tablero con datos de ejemplo**.
@@ -129,6 +141,7 @@ Mostrá el resumen:
 ✅ Claude Code abierto en la carpeta, con los skills cargados
 ✅ Gmail conectado (o: salteado)
 ✅ Google Calendar conectado (o: salteado)
+✅ Google Drive y Sheets para la vista del cliente (o: no hace falta / para después)
 ✅ Tablero funcionando
 ```
 
@@ -148,6 +161,7 @@ Después decile qué sigue, en este orden:
 | Escribo `/empezar` y no aparece | Claude Code está abierto en otra carpeta. Abrí una sesión nueva en la carpeta del sistema (la que tiene `CLAUDE.md` adentro) |
 | Claude dice que no puede descargar | Bajá el ZIP con el navegador desde https://github.com/JuanLoredo6/recruiting-os/archive/refs/heads/main.zip, dejalo en Documentos y escribí «seguí con la instalación» |
 | No encuentro Gmail en los conectores | Buscá «Gmail» y «Google Calendar» en el directorio de conectores. Si es una cuenta de Google Workspace, puede estar bloqueado por la organización: hablalo con quien la administra |
+| Compartí la carpeta con el cliente y no le llegó el mail | Pasa: el aviso de Google no siempre sale. Pedile a Claude el aviso con `/redactar-mensaje` y mandale los links vos |
 | Conecté Gmail pero Claude no lo ve | Abrí una sesión nueva en la misma carpeta y escribí «seguí con la instalación» |
 | Claude me pide permiso para todo | Leé qué quiere hacer y aceptá si tiene sentido. Para leer mails y eventos, elegí «permitir siempre» |
 | Me quedé sin uso del plan en el medio | El límite se renueva solo. Nada se pierde: cuando vuelvas, escribí «seguí con la instalación» |

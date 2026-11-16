@@ -29,7 +29,8 @@ En pocas líneas:
 
 Preguntá en una sola ronda qué material hay:
 
-1. **Búsquedas en curso:** ¿llevan las búsquedas en un Excel, Google Sheets, Notion o un ATS? Si pueden exportarlo a CSV o Excel, que lo arrastren a `contexto/importado/`.
+1. **Búsquedas en curso:** ¿llevan las búsquedas en un Excel, Google Sheets, Notion o un ATS? Si pueden exportarlo a CSV o Excel, que lo arrastren a `contexto/importado/`. Si es un Google Sheet y está el conector de Google Sheets, también pueden pasar el link: se lee (solo lectura) y se guarda una copia en `contexto/importado/`.
+   - **¿Ese Sheet lo comparten con el cliente?** Si sí, anotalo en `contexto/consultora.md` («Cómo trabajamos») y contales que el sistema lo puede seguir haciendo con `vista-cliente`: el sistema queda como fuente de verdad y el Sheet como lo que ve el cliente, con su formato si quieren conservarlo (`formato: propio`). Se configura después, búsqueda por búsqueda, con `/vista-cliente crear`.
 2. **Clientes:** ¿tienen notas de clientes o de arranques con hiring managers? → `contexto/importado/`.
 3. **Mensajes:** ¿tienen plantillas o mensajes reales que usen con candidatos (primer contacto, devolución) o con clientes (reporte)? Sirven para la voz.
 4. **Otra IA:** ¿hablaron de su consultora con Claude en el chat, ChatGPT, Gemini u otra? Si sí, mostrá el bloque de `plantillas/prompt-importar-contexto.md` para que lo peguen allá, y que peguen la respuesta acá. Guardala tal cual en `contexto/importado/<AAAA-MM-DD>-<herramienta>.md`, salvo datos sensibles de candidatos (ver el paso 4).

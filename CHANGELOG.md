@@ -4,8 +4,24 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 
 ## [Sin publicar]
 
+## [0.4.0] - 2026-11-16
+
+Vista del cliente en Google Sheets y Drive, más los créditos completos en todo el repo.
+
+### Agregado
+
+- **Vista del cliente en Google Sheets y Drive** (opcional), para las consultoras que le muestran el avance a su cliente en un Sheet compartido. El cliente no necesita Claude.
+  - Skill `vista-cliente`: crea la carpeta y el Sheet protegido de cada búsqueda, comparte con mails puntuales, publica mostrando antes qué cambia, sube CVs limpios y la terna, lee la decisión del cliente hacia «Para revisar» y cierra el acceso. Trae un plan B sin conectores (`.xlsx` o `.csv`).
+  - `plantillas/vista-cliente.md`: carpeta, pestañas, columnas, etapas en lenguaje del cliente y la configuración que el conector no hace.
+  - `redactar-mensaje`: el pedido al candidato para presentarlo al cliente y el aviso de la vista del cliente.
+  - Tablero: insignia «Compartida con el cliente», link al Sheet, novedades del «Sheet del cliente» y dos alertas (cambios sin publicar, búsqueda cerrada que sigue compartida).
+  - `INSTALACION.md`: etapa opcional para conectar Google Drive y Sheets.
+
 ### Cambia
 
+- **Modelo de datos del tablero:** la búsqueda suma `vistaCliente` y el candidato, `presentadoEl`, `cvCompartido` y `decisionCliente`. Todos son opcionales: un `busquedas.json` anterior sigue siendo válido. «Para revisar» y el historial aceptan la fuente `sheets`.
+- `armar-terna` pide el OK de cada candidato antes de presentarlo; `actualizar`, `sincronizar-correo`, `reporte-semanal`, `privacidad` y `empezar` conocen la vista del cliente.
+- `plantillas/privacidad.md` suma qué se comparte con el cliente, dónde y hasta cuándo.
 - `CLAUDE.md` nombra también a Paweł Huryn en los créditos y pide acreditar cualquier material nuevo de terceros.
 - `README.md` y `CREDITOS.md` enlazan los tres repositorios de Paweł Huryn; `CREDITOS.md` abre con la licencia del sistema.
 - `guia-de-entrevista` acredita en su encabezado el criterio de Producto adaptado de Pedro Romero Luna.
@@ -85,7 +101,8 @@ Base del sistema y núcleo para los primeros pilotos (fases 0 y 1).
 - Hook de Claude Code que valida `busquedas.json` con `validar.py` y regenera `datos.js` después de cada edición.
 - Licencia MIT y créditos a los skills de origen.
 
-[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.2...HEAD
+[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.2.0...v0.3.0

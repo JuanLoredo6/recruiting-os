@@ -47,6 +47,8 @@ Después preguntá: ¿quiénes van a la terna? La decisión es de la consultora.
 
 ## Presentar
 
+**Antes de armarla, el OK de cada candidato.** Nadie se presenta a un cliente sin haberlo aceptado. Para cada candidato de la terna sin `presentadoEl`, ofrecé el pedido con `/redactar-mensaje consentimiento-presentacion <cliente-rol> <candidato>` y esperá su respuesta. Cuando la persona confirma que aceptó, `presentadoEl` va con la fecha. Quien no aceptó todavía puede figurar en la terna como borrador, pero no sale al cliente.
+
 Con la terna elegida, armá `busquedas/<cliente-rol>/terna-<AAAA-MM-DD>.md`:
 
 1. **Resumen de la búsqueda:** cuántos perfiles se revisaron, se contactaron y se entrevistaron, en una línea. Sin nombres de los que no avanzaron.
@@ -67,6 +69,8 @@ Reglas de la presentación:
 - Pasala por `.claude/skills/redactar-mensaje/SKILL.md#revisión-de-voz`.
 
 Si quieren una versión con diseño (PDF o presentación), ofrecé `/disenador-visual`.
+
+**Si la búsqueda tiene vista del cliente** (`vistaCliente` sin `revocada`), ofrecé subir la terna como Doc y publicar las filas de los candidatos con `/vista-cliente subir <cliente-rol> terna` y `/vista-cliente publicar <cliente-rol>`. Si no la tiene y la consultora comparte con sus clientes en Google, ofrecé `/vista-cliente crear <cliente-rol>`.
 
 Después, en `busquedas/busquedas.json`: los candidatos de la terna pasan a `terna`, la búsqueda a `terna`, historial y una acción "Pedir a <hiring manager> fechas para las entrevistas" con pedido `/redactar-mensaje cliente <cliente-rol>`. Los que no entraron siguen activos hasta que la consultora decida; si se descartan, va con `actualizar` (motivo y devolución pendiente).
 

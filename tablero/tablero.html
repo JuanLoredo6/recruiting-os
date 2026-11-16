@@ -260,6 +260,7 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
   var MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
   var DIAS_DEVOLUCION = 5;
   var DIAS_SIN_MOVIMIENTO = 7;
+  var DIAS_SIN_PUBLICAR = 3;
   var CLAVE = "tablero-recruiting";
 
   var datos = null;
@@ -336,6 +337,8 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
     return c ? c.nombre : id || "";
   }
   function abierta(b) { return b.estado !== "cerrada"; }
+  // Vista del cliente (skill vista-cliente): la búsqueda compartida con el cliente en Google Sheets y Drive.
+  function compartida(b) { return !!(b.vistaCliente && !b.vistaCliente.revocada); }
   function activo(c) { return CIERRES.indexOf(c.etapa) === -1; }
   function etiquetaBusqueda(b) { return b ? nombreCliente(b.cliente) + " · " + b.rol : ""; }
 
@@ -428,6 +431,20 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
             pedido: "/privacidad revisar" });
         }
       });
+      if (compartida(b) && !abierta(b)) {
+        lista.push({ tipo: "compartida", orden: 1, texto: "Está cerrada y el cliente todavía tiene acceso a la carpeta y a los CVs", donde: etiquetaBusqueda(b),
+          pedido: "/vista-cliente cerrar " + b.id });
+      }
+      if (compartida(b) && abierta(b)) {
+        var pub = (b.vistaCliente.ultimaPublicacion || "").slice(0, 10);
+        var sinPublicar = (b.candidatos || []).some(function (c) { return c.presentadoEl && (!pub || ultimaNovedad(c) > pub); }) ||
+          (pub && (b.ultimaNovedad || "") > pub);
+        var dp = pub ? diasEntre(pub, hoy) : null;
+        if (sinPublicar && (dp == null || dp >= DIAS_SIN_PUBLICAR)) {
+          lista.push({ tipo: "publicar", orden: 2, texto: pub ? "El cliente ve datos de hace " + plural(dp, "día", "días") + ": hay cambios sin publicar" : "Hay candidatos presentados que el cliente todavía no ve en su Sheet",
+            donde: etiquetaBusqueda(b), pedido: "/vista-cliente publicar " + b.id });
+        }
+      }
       if (b.estado !== "cerrada" && b.estado !== "pausada") {
         var dias = diasEntre(ultimaNovedad(b), hoy);
         if (dias != null && dias >= DIAS_SIN_MOVIMIENTO) {
@@ -578,14 +595,14 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
     var items = (datos && datos.sync && datos.sync.porRevisar) || [];
     if (!items.length) return "";
     return '<section class="revisar" aria-labelledby="revisar-titulo"><div class="revisar-fila"><h2 id="revisar-titulo">Para revisar · ' +
-      plural(items.length, "novedad", "novedades") + ' de Gmail y Calendar</h2>' +
+      plural(items.length, "novedad", "novedades") + "</h2>" +
       '<button class="btn btn-sm" id="revisar-correo">Revisar con Claude</button></div><ul>' +
       items.map(function (r) {
         var b = r.busqueda ? buscarBusqueda(r.busqueda) : null;
         var k = b && r.candidato ? buscarCandidato(b.id, r.candidato) : null;
         return "<li>" + (r.alerta ? '<span class="tag tag-vencida">⚠️ Cuidado</span> ' : "") +
           '<span class="mono">' + esc(r.fecha ? fechaCorta(r.fecha) : "") + "</span> " +
-          '<span class="tag">' + esc(r.fuente === "calendar" ? "Calendar" : "Gmail") + "</span> " +
+          '<span class="tag">' + esc(r.fuente === "calendar" ? "Calendar" : r.fuente === "sheets" ? "Sheet del cliente" : "Gmail") + "</span> " +
           (b ? '<span class="tag">' + esc(nombreCliente(b.cliente)) + "</span> " : "") +
           (k ? '<span class="tag">' + esc(k.nombre) + "</span> " : "") + esc(r.resumen) +
           (r.propuesta ? '<div class="propuesta">Propuesta: ' + esc(r.propuesta) + "</div>" : "") + "</li>";
@@ -672,6 +689,7 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
       '<div class="tags"><span class="tag">' + esc(NOMBRE_AREA[b.area] || b.area) + "</span>" +
         '<span class="tag">' + esc(b.estado === "cerrada" && b.resultado ? NOMBRE_RESULTADO[b.resultado] || b.resultado : NOMBRE_ESTADO[b.estado] || b.estado) + "</span>" +
         (quieta ? '<span class="tag tag-warn">Sin movimiento</span>' : "") +
+        (compartida(b) ? '<span class="tag' + (abierta(b) ? "" : " tag-warn") + '" title="El cliente ve esta búsqueda en Google Sheets y Drive">Compartida con el cliente</span>' : "") +
         (dev ? '<span class="tag tag-warn">' + plural(dev, "devolución", "devoluciones") + "</span>" : "") + "</div>" +
       '<div class="linea">' + (dias != null ? "Abierta hace " + plural(dias, "día", "días") + " · " : "") + plural(act, "candidato activo", "candidatos activos") + "</div>" +
       (b.proximo && abierta(b) ? '<div class="proximo"><strong>Próximo:</strong> ' + esc(b.proximo) + "</div>" : "") +
@@ -714,12 +732,15 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
       htmlEvaluacion(c.evaluacion) +
       (CIERRES.indexOf(c.etapa) !== -1 ? '<div class="antig"><span class="tag">' + esc(NOMBRE_ETAPA[c.etapa]) + "</span>" + (c.motivo ? " " + esc(c.motivo) : "") + "</div>" : "") +
       (c.devolucion === "pendiente" ? '<div class="antig alerta">Devolución pendiente</div>' : "") +
+      (c.presentadoEl && compartida(b) ? '<div class="antig">Lo ve el cliente' + (c.decisionCliente ? ": «" + esc(c.decisionCliente.valor) + "»" : "") + "</div>" : "") +
       (dias != null && activo(c) ? '<div class="antig' + (quieto ? " alerta" : "") + '">' + (dias === 0 ? "Movimiento hoy" : "Último movimiento hace " + plural(dias, "día", "días")) + "</div>" : "") +
       (movida ? '<div class="antig"><span class="tag tag-local">Movido a ' + esc(NOMBRE_ETAPA[et]) + " · falta pasarlo a Claude</span></div>" : "") +
       "<details><summary>Detalle</summary><div class=\"detalle\">" +
         '<div>Carpeta: <span class="mono">busquedas/' + esc(b.id) + "/candidatos/" + esc(c.id) + "/</span></div>" +
         (c.consentimiento ? "<div>Consentimiento: " + esc(c.consentimiento) + "</div>" : "<div>Sin consentimiento registrado</div>") +
         (c.borrarEl ? "<div>Borrar el: " + esc(c.borrarEl) + "</div>" : "") +
+        (c.presentadoEl ? "<div>Presentado al cliente: " + esc(c.presentadoEl) + (c.cvCompartido ? " · CV " + esc(c.cvCompartido) + " en Drive" : "") + "</div>" : "") +
+        (c.decisionCliente ? "<div>Dijo el cliente (" + esc(c.decisionCliente.leidaEl || "") + "): «" + esc(c.decisionCliente.valor) + "»" + (c.decisionCliente.comentario ? " " + esc(c.decisionCliente.comentario) : "") + "</div>" : "") +
         (hist.length ? "<ul>" + hist.map(function (x) { return '<li><span class="mono">' + esc(x.fecha ? fechaCorta(x.fecha) : "") + "</span> " + esc(x.texto) + "</li>"; }).join("") + "</ul>" : "") +
         '<div class="mover"><label for="mover-' + domId + '">Mover a</label><select id="mover-' + domId + '" data-mover="' + esc(clave) + '">' + opciones + "</select></div>" +
         '<label class="sr" for="nota-' + domId + '">Nota</label><textarea id="nota-' + domId + '" data-nota-campo="' + esc(clave) + '" placeholder="Anotá una novedad (por ejemplo: aceptó la charla para el jueves)"></textarea>' +
@@ -732,7 +753,9 @@ dialog textarea { width: 100%; min-height: 220px; font-family: var(--mono); font
     var cands = b.candidatos || [];
     var hoy = hoyISO();
     var h = '<section class="bloque" aria-labelledby="pipeline-titulo"><div class="pipeline-cab"><h2 class="titulo" id="pipeline-titulo">Pipeline · ' + esc(etiquetaBusqueda(b)) + "</h2>" +
-      '<span class="meta">' + esc([b.hiringManager ? "Hiring manager: " + b.hiringManager : "", b.objetivoCierre ? "Objetivo: " + b.objetivoCierre + (b.objetivoCierre < hoy ? " (vencido)" : "") : "", "Carpeta busquedas/" + b.id + "/"].filter(Boolean).join(" · ")) + "</span></div>";
+      '<span class="meta">' + esc([b.hiringManager ? "Hiring manager: " + b.hiringManager : "", b.objetivoCierre ? "Objetivo: " + b.objetivoCierre + (b.objetivoCierre < hoy ? " (vencido)" : "") : "", "Carpeta busquedas/" + b.id + "/"].filter(Boolean).join(" · ")) + "</span>" +
+      (compartida(b) && /^https:\/\//.test(b.vistaCliente.url || "") ? '<span class="meta"><a href="' + esc(b.vistaCliente.url) + '" target="_blank" rel="noopener">Sheet del cliente</a>' +
+        (b.vistaCliente.ultimaPublicacion ? " · publicado " + esc(b.vistaCliente.ultimaPublicacion.replace("T", " ")) : " · sin publicar") + "</span>" : "") + "</div>";
     h += '<div class="kanban-scroll"><div class="kanban">';
     ETAPAS.forEach(function (e) {
       var items = cands.filter(function (c) { return etapaEfectiva(b.id, c) === e.id; })
