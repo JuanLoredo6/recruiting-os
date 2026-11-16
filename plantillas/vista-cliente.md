@@ -63,7 +63,7 @@ Fecha y una línea por cada cambio publicado. Nunca se borra una línea, salvo l
 
 Probado con los conectores de Google el 2026-11-16:
 
-- **Protecciones con editores explícitos.** Se crean con la cuenta de la consultora como único editor. Después de cada vez que se comparte, se vuelven a leer: Google suma a cualquier persona con quien se comparte si la lista no es explícita.
+- **Protecciones con editores explícitos.** Se crean con la cuenta de la consultora como único editor. Las dos columnas del cliente quedan libres desde la fila 2 hasta el final de la grilla. Después de cada vez que se comparte, se vuelven a leer: Google suma a cualquier persona con quien se comparte si la lista no es explícita.
 - **Carpeta como lector, Sheet como editor.** Los archivos de la carpeta heredan el permiso de lector.
 - **«Los editores pueden cambiar permisos y compartir»:** se apaga a mano en el Sheet (Compartir → ⚙️). Sin esto, el cliente puede invitar a otras personas y cambiar el acceso general. Google no permite separar las dos cosas.
 - **Descarga del CV:** opcional. A mano, archivo por archivo: Compartir → ⚙️ → «Los lectores pueden ver la opción para descargar, imprimir y copiar». No impide una captura de pantalla.

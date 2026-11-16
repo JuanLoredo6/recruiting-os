@@ -40,7 +40,7 @@ Leé siempre `contexto/privacidad.md` primero. Si no existe, decí que hay que c
 2. Pedí confirmación explícita: **se borra y no se puede recuperar.**
 3. Con el sí:
    - Borrá la carpeta del candidato.
-   - **Si tiene `cvCompartido`**, su CV de la carpeta del cliente va a la papelera de Drive (con el conector, o a mano si no está), y su fila sale del Sheet con `/vista-cliente publicar`. Avisá que el cliente pudo haberlo descargado mientras tuvo acceso: eso queda fuera del alcance de la consultora. Después, `cvCompartido: null` y `presentadoEl: null`.
+   - **Si tiene `cvCompartido`**, su CV de la carpeta del cliente va a la papelera de Drive (con el conector, o a mano si no está), y su fila sale del Sheet con `/vista-cliente publicar` y de `vista-cliente-publicada.json`. Avisá que el cliente pudo haberlo descargado mientras tuvo acceso: eso queda fuera del alcance de la consultora. Después, `cvCompartido: null` y `presentadoEl: null`.
    - En `busquedas/busquedas.json`, reemplazá su entrada por una anónima para que los números de la búsqueda sigan cerrando: `id` `anonimo-<n>` (el primer número libre en esa búsqueda), `nombre` vacío, la misma `etapa`, `fuente` y `motivo` (si el motivo nombra a la persona, generalizalo), `evaluacion: null`, `consentimiento: null`, `borrarEl: null`, `historial: []`, `devolucion` como estaba.
    - Borrá o anonimizá sus acciones pendientes (si había una devolución pendiente, avisá antes: quizás conviene mandarla primero).
    - En reportes y notas que lo nombran, reemplazá el nombre por "un candidato" o el id anónimo. No toques `contexto/importado/`: avisá si ahí aparece, para que la persona lo resuelva.
