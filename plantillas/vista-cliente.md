@@ -40,6 +40,7 @@ Una fila por candidato con `presentadoEl`. Columnas en este orden:
 8. **CV:** link al archivo de `CVs/`.
 9. **Decisión del cliente** (editable, fondo amarillo): desplegable Avanza / No avanza / Quiero hablar.
 10. **Comentario del cliente** (editable, fondo amarillo).
+11. **id** (oculta y protegida): el id del candidato en `busquedas.json`. Así `vista-cliente` reconoce cada fila al publicar y al leer, aunque cambie el nombre o el orden.
 
 ### Historial (protegida)
 
