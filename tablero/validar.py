@@ -27,7 +27,10 @@ ETAPAS = {"identificado", "contactado", "screening", "entrevista-cliente", "tern
 CON_MOTIVO = {"descartado", "retirado"}
 DEVOLUCIONES = {"no-aplica", "pendiente", "enviada"}
 PRIORIDADES = {"alta", "media", "baja"}
-FUENTES = {"gmail", "calendar"}
+FUENTES = {"gmail", "calendar", "sheets"}
+FORMATOS_VISTA = {"estandar", "propio"}
+CV_COMPARTIDO = {"limpio", "original"}
+MAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 CONTEO = ("cumple", "parcial", "noCumple", "falta")
 
 
@@ -64,6 +67,33 @@ def main(ruta):
             fuente = h.get("fuente")
             if fuente is not None and fuente not in FUENTES:
                 problemas.append(f"{donde}: historial[{j}] con fuente {fuente!r}")
+
+    def vista_cliente(vc, donde):
+        """La vista del cliente en Google Sheets y Drive (skill vista-cliente)."""
+        if vc is None:
+            return
+        if not isinstance(vc, dict):
+            problemas.append(f"{donde}: vistaCliente tiene que ser null o un objeto")
+            return
+        dv = f"{donde}, vistaCliente"
+        for clave in ("carpeta", "sheet", "url"):
+            if not isinstance(vc.get(clave), str) or not vc.get(clave):
+                problemas.append(f"{dv}: falta '{clave}'")
+        if vc.get("formato") not in FORMATOS_VISTA:
+            problemas.append(f"{dv}: formato {vc.get('formato')!r} no es uno de {sorted(FORMATOS_VISTA)}")
+        compartido = vc.get("compartidoCon")
+        if not isinstance(compartido, list):
+            problemas.append(f"{dv}: 'compartidoCon' tiene que ser una lista")
+            compartido = []
+        for j, p in enumerate(compartido):
+            if not isinstance(p, dict) or not isinstance(p.get("mail"), str) or not MAIL.match(p.get("mail")):
+                problemas.append(f"{dv}: compartidoCon[{j}] necesita un 'mail' válido")
+                continue
+            fecha(p.get("desde"), f"{dv}, compartidoCon[{j}].desde", nula=False)
+            fecha(p.get("vence"), f"{dv}, compartidoCon[{j}].vence")
+        fecha(vc.get("ultimaPublicacion"), f"{dv}, ultimaPublicacion", hora=True)
+        fecha(vc.get("ultimaLectura"), f"{dv}, ultimaLectura", hora=True)
+        fecha(vc.get("revocada"), f"{dv}, revocada")
 
     def ident(valor, donde):
         if not isinstance(valor, str) or not ID.match(valor):
@@ -126,6 +156,7 @@ def main(ruta):
         fecha(b.get("objetivoCierre"), f"{donde}, objetivoCierre")
         fecha(b.get("ultimaNovedad"), f"{donde}, ultimaNovedad")
         historial(b.get("historial"), donde)
+        vista_cliente(b.get("vistaCliente"), donde)
 
         candidatos = b.get("candidatos")
         if candidatos is None:
@@ -170,6 +201,26 @@ def main(ruta):
             fecha(c.get("consentimiento"), f"{dc}, consentimiento")
             if not anonimo:
                 fecha(c.get("borrarEl"), f"{dc}, borrarEl", nula=False)
+            presentado = c.get("presentadoEl")
+            fecha(presentado, f"{dc}, presentadoEl")
+            if presentado and not c.get("consentimiento"):
+                problemas.append(f"{dc}: fue presentado al cliente y no tiene consentimiento registrado")
+            cv = c.get("cvCompartido")
+            if cv is not None and cv not in CV_COMPARTIDO:
+                problemas.append(f"{dc}: cvCompartido {cv!r} no es null ni uno de {sorted(CV_COMPARTIDO)}")
+            if cv and not presentado:
+                problemas.append(f"{dc}: tiene un CV compartido con el cliente pero no presentadoEl")
+            if cv and anonimo:
+                problemas.append(f"{dc}: es anónimo y su CV sigue compartido en Drive; "
+                                 "hay que mandarlo a la papelera y poner cvCompartido en null")
+            dec = c.get("decisionCliente")
+            if dec is not None:
+                if not isinstance(dec, dict) or not isinstance(dec.get("valor"), str) or not dec.get("valor"):
+                    problemas.append(f"{dc}: decisionCliente tiene que ser null o un objeto con 'valor'")
+                else:
+                    fecha(dec.get("leidaEl"), f"{dc}, decisionCliente.leidaEl", nula=False)
+                    if not presentado:
+                        problemas.append(f"{dc}: tiene decisión del cliente pero no presentadoEl")
             historial(c.get("historial"), dc)
         if contratados > 1:
             problemas.append(f"{donde}: tiene {contratados} candidatos contratados; "
@@ -216,7 +267,7 @@ def main(ruta):
         fecha(sync.get("ultimoIntento"), "sync.ultimoIntento", hora=True)
         for j, r in enumerate(sync.get("porRevisar") or []):
             if isinstance(r, dict) and r.get("fuente") not in FUENTES:
-                problemas.append(f"sync.porRevisar[{j}]: fuente {r.get('fuente')!r} no es gmail ni calendar")
+                problemas.append(f"sync.porRevisar[{j}]: fuente {r.get('fuente')!r} no es gmail, calendar ni sheets")
             if not isinstance(r, dict):
                 continue
             rb, rc = r.get("busqueda"), r.get("candidato")
