@@ -7,6 +7,7 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 ### Agregado
 
 - Releases automáticas: al subir un tag `vX.Y.Z`, el workflow `Release` crea la release de GitHub con las notas de su sección del CHANGELOG y falla si queda algún tag sin release. El proceso está en `.github/RELEASE.md`.
+- README en inglés (`README.en.md`), con un selector de idioma arriba de los dos README. El sistema sigue funcionando en español.
 
 ## [0.4.0] - 2026-11-16
 

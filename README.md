@@ -1,5 +1,7 @@
 # Recruiting OS
 
+[English](README.en.md) · **Español**
+
 Un sistema para llevar búsquedas de talento con **Claude Code** y con criterio: el arranque con el hiring manager, un scorecard que se puede evaluar, cada candidato contra ese scorecard, las entrevistas, la terna, las devoluciones y un tablero que dice qué hacer hoy. Todo queda en carpetas de la computadora de la consultora.
 
 Está pensado para **consultoras boutique y recruiters independientes de LATAM** que hacen búsquedas de **Producto** y de **Atención al cliente** (liderazgo y especialistas) en empresas de tecnología. No está calibrado para contratación masiva ni para búsquedas de Tecnología o Diseño.
