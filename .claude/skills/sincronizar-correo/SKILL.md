@@ -52,6 +52,12 @@ Ignorá newsletters, promociones y alertas automáticas.
 
 Eventos desde hoy hasta 21 días adelante (y desde `sync.ultima` hacia atrás, para entrevistas que ya pasaron). Quedate con los que nombran a un candidato activo, a un cliente o dicen entrevista, screening, charla, terna, feedback.
 
+### Vista del cliente (Google Sheets)
+
+Para cada búsqueda abierta con `vistaCliente` sin `revocada`, si está el conector de Google Sheets, seguí el modo **Leer** de `.claude/skills/vista-cliente/SKILL.md`: solo lee las columnas del cliente y manda lo nuevo a «Para revisar» con `"fuente": "sheets"`. Nunca escribe en el Sheet. Si falta el conector, anotalo en el resumen (o en `sync.error` en modo automático) y seguí con el resto.
+
+La decisión del cliente nunca se aplica sola, ni siquiera cuando es clara: siempre es dudosa en el sentido de esta sección.
+
 ## Cómo clasificar cada novedad
 
 Para cada mail o evento, decidí **a qué búsqueda y a qué candidato pertenece** (nombre, dirección, asunto, hilo anterior) y **qué pasó**.
@@ -67,7 +73,7 @@ Solo si la búsqueda y el candidato son uno solo, inequívocos, y lo que pasó e
 | Una entrevista del calendario ya pasó y el candidato sigue igual | Acción: "Registrar la entrevista con <nombre>", hoy, pedido `/registrar-entrevista <cliente-rol> <candidato>` |
 | El candidato confirma que acepta la oferta | Historial y acción "Confirmar el ingreso de <nombre> con <cliente>", hoy. **El paso a `contratado` lo confirma la persona** |
 
-Cada cambio aplicado suma una línea al `historial` del candidato con `"fuente": "gmail"` o `"fuente": "calendar"`, actualiza `ultimaNovedad` del candidato y de la búsqueda, `actualizado`, y agrega el id del hilo o evento a `sync.procesados`.
+Cada cambio aplicado suma una línea al `historial` del candidato con `"fuente": "gmail"` o `"fuente": "calendar"` (lo que viene del Sheet nunca se aplica directo), actualiza `ultimaNovedad` del candidato y de la búsqueda, `actualizado`, y agrega el id del hilo o evento a `sync.procesados`.
 
 ### Dudoso: va a «Para revisar»
 

@@ -30,6 +30,7 @@ Leé siempre `contexto/privacidad.md` primero. Si no existe, decí que hay que c
    - **Por vencer en 7 días.**
    - **Sin fecha de borrado** (no debería pasar: corregilo calculándola con la política).
    - **Sin consentimiento** en etapas que lo suponen (`screening` o más): puede ser un dato que falta cargar.
+   - **Compartidos con el cliente** después de lo previsto: búsquedas cerradas con `vistaCliente` sin `revocada`, y candidatos con `cvCompartido` que ya no están en ninguna etapa activa. Proponé `/vista-cliente cerrar`.
 2. Mostrá la lista agrupada, con nombre, búsqueda, etapa y fecha. Para cada vencido, la recomendación es borrar; para los que tienen una razón para seguir (por ejemplo, están en una búsqueda abierta), proponé recalcular la fecha y decí por qué.
 3. La persona decide cuáles se borran. Aplicá **Borrar** a esos, en un solo paso.
 
@@ -39,6 +40,7 @@ Leé siempre `contexto/privacidad.md` primero. Si no existe, decí que hay que c
 2. Pedí confirmación explícita: **se borra y no se puede recuperar.**
 3. Con el sí:
    - Borrá la carpeta del candidato.
+   - **Si tiene `cvCompartido`**, su CV de la carpeta del cliente va a la papelera de Drive (con el conector, o a mano si no está), y su fila sale del Sheet con `/vista-cliente publicar`. Avisá que el cliente pudo haberlo descargado mientras tuvo acceso: eso queda fuera del alcance de la consultora. Después, `cvCompartido: null` y `presentadoEl: null`.
    - En `busquedas/busquedas.json`, reemplazá su entrada por una anónima para que los números de la búsqueda sigan cerrando: `id` `anonimo-<n>` (el primer número libre en esa búsqueda), `nombre` vacío, la misma `etapa`, `fuente` y `motivo` (si el motivo nombra a la persona, generalizalo), `evaluacion: null`, `consentimiento: null`, `borrarEl: null`, `historial: []`, `devolucion` como estaba.
    - Borrá o anonimizá sus acciones pendientes (si había una devolución pendiente, avisá antes: quizás conviene mandarla primero).
    - En reportes y notas que lo nombran, reemplazá el nombre por "un candidato" o el id anónimo. No toques `contexto/importado/`: avisá si ahí aparece, para que la persona lo resuelva.

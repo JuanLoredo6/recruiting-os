@@ -28,6 +28,7 @@ Una fila por necesidad. La columna Skill dice cuál cargar; todos viven en `.cla
 | Comparar finalistas, decidir la terna y armar su presentación al cliente | `armar-terna` |
 | Ayudar al cliente a decidir entre dos finalistas | `armar-terna` (modo desempatar) |
 | Escribir un primer contacto, follow-up, invitación, devolución o mensaje al cliente | `redactar-mensaje` |
+| Compartir la búsqueda con el cliente en Google Sheets y Drive: crear, publicar, subir CVs limpios y la terna, leer lo que decidió, cerrar el acceso | `vista-cliente` |
 | Repasar la semana de toda la cartera | `reporte-semanal` |
 | Armar el reporte para el cliente de una búsqueda | `reporte-semanal <búsqueda>` |
 | Cerrar una búsqueda y sacar aprendizajes | `actualizar` y después `reporte-semanal <búsqueda> cierre` |
@@ -59,7 +60,8 @@ Una fila por necesidad. La columna Skill dice cuál cargar; todos viven en `.cla
 - **Cada búsqueda nueva:** `nueva-busqueda` (preparar) → arranque con el hiring manager → `nueva-busqueda` (armar) → `pitch-del-rol` → `redactar-aviso` y `plan-de-sourcing` → `guia-de-entrevista` (base y para el hiring manager). Si el aviso o el mensaje son importantes, `candidatos-sinteticos` antes de usarlos.
 - **Cada perfil:** `evaluar-candidato` → `redactar-mensaje` (contacto) → `guia-de-entrevista` (candidato) → `registrar-entrevista`.
 - **Cada novedad:** `actualizar` (y `redactar-mensaje` si hay que responder). Lo que llega por mail o calendario lo trae `sincronizar-correo`.
-- **Cuando hay finalistas:** `armar-terna` → `disenador-visual` si quieren una versión con diseño.
+- **Cuando hay finalistas:** `redactar-mensaje` (pedido para presentar al cliente) → `armar-terna` → `disenador-visual` si quieren una versión con diseño → `vista-cliente` (subir y publicar) si comparten con el cliente en Google.
+- **Si la consultora comparte con el cliente en Google:** `vista-cliente crear` → `publicar` → `compartir` (y el aviso con `redactar-mensaje`). Después, `vista-cliente publicar` con cada novedad y `sincronizar-correo` para leer lo que decidió el cliente. Al cerrar, `vista-cliente cerrar`.
 - **Cada descarte:** `actualizar` → `redactar-mensaje` (devolución) dentro del plazo.
 - **Cada viernes:** `reporte-semanal` (cartera) y `reporte-semanal <búsqueda>` para cada cliente.
 - **Cuando una búsqueda se traba:** `diagnostico-proceso` → `mapeo-de-mercado` o `nueva-busqueda` (ajustar) según la hipótesis.

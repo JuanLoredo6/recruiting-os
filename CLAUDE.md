@@ -62,7 +62,7 @@ busquedas/<cliente-rol>/
 
 El índice completo, con recorridos típicos, está en `.claude/skills/mapa-de-skills/SKILL.md`. Resumen:
 
-- **Día a día:** `empezar`, `nueva-busqueda`, `redactar-aviso`, `evaluar-candidato`, `actualizar`, `sincronizar-correo`, `guia-de-entrevista`, `registrar-entrevista`, `armar-terna`, `redactar-mensaje`, `reporte-semanal`.
+- **Día a día:** `empezar`, `nueva-busqueda`, `redactar-aviso`, `evaluar-candidato`, `actualizar`, `sincronizar-correo`, `guia-de-entrevista`, `registrar-entrevista`, `armar-terna`, `redactar-mensaje`, `reporte-semanal`, `vista-cliente` (opcional: la búsqueda compartida con el cliente en Google Sheets y Drive).
 - **Estrategia de la búsqueda:** `plan-de-sourcing`, `pitch-del-rol`, `mapeo-de-mercado`, `diagnostico-proceso`, `aprendizajes`.
 - **Criterio y cuidado:** `poner-a-prueba` (el método de entrevista que citan los demás), `candidatos-sinteticos`, `privacidad`, `disenador-visual`, `mapa-de-skills`.
 
@@ -88,7 +88,7 @@ Si un pedido encaja en un skill, usalo aunque la persona no lo nombre.
 4. El tablero muestra: **Hoy** (acciones del día), **Alertas** (devoluciones pendientes, búsquedas sin movimiento, borrados vencidos), **Lo que hay que hacer**, la **Cartera** de búsquedas y el **Pipeline** de candidatos de la búsqueda elegida.
 5. Lo que la persona marca en el tablero (acción hecha, nota, acción nueva) queda como cambio pendiente en su navegador. El tablero arma un pedido que empieza con "Cambios desde el tablero" para pegar en Claude Code; el skill `actualizar` lo aplica al JSON. Cuando el JSON ya refleja el cambio, el tablero lo borra solo.
 6. El botón ⚡ de cada acción copia su `pedido` más el contexto de la tarea, para pegar en Claude Code.
-7. El botón **🔄 SYNC** copia `/sincronizar-correo`: Claude revisa Gmail y Google Calendar con los conectores oficiales (solo lectura) y trae las novedades de las búsquedas. Puede correr sola cada 2 horas en horario laboral con una tarea programada (`/sincronizar-correo configurar`). Lo dudoso queda en `sync.porRevisar` y el tablero lo muestra en «Para revisar».
+7. El botón **🔄 SYNC** copia `/sincronizar-correo`: Claude revisa Gmail y Google Calendar con los conectores oficiales (solo lectura) y trae las novedades de las búsquedas. Si hay búsquedas con vista del cliente, también lee lo que decidió el cliente en el Sheet. Puede correr sola cada 2 horas en horario laboral con una tarea programada (`/sincronizar-correo configurar`). Lo dudoso queda en `sync.porRevisar` y el tablero lo muestra en «Para revisar».
 
 **Después de editar el JSON:** si el hook devuelve un error de validación, corregilo en el mismo turno antes de seguir. Si el hook no corrió, ejecutá `bash tablero/sincronizar.sh` desde la raíz del proyecto: valida y regenera.
 
