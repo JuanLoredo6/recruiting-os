@@ -43,6 +43,7 @@ Al terminar, en la carpeta del sistema, escribí:
 | El tablero dice «Todavía no hay datos» | Corré `/empezar` primero. Si ya lo hiciste, pedile a Claude: «regenerá el tablero» |
 | El tablero no se actualiza | Recargá la página (F5). Si sigue igual, pedile a Claude: «corré tablero/sincronizar.sh» |
 | `/sincronizar-correo` dice que falta un conector | Tocá el **+** junto al cuadro de mensaje → conectores → Gmail o Google Calendar → Conectar. Después abrí una sesión nueva |
+| `/vista-cliente` dice que falta un conector | Lo mismo, con **Google Drive** (y **Google Sheets** si aparece aparte), con la cuenta de la consultora |
 | No sé qué hacer ahora | Preguntale a Claude «¿qué hago ahora?» o escribí `/mapa-de-skills` |
 
 ---
@@ -63,6 +64,7 @@ Al terminar, en la carpeta del sistema, escribí:
 | Para traer lo que llegó por mail o al calendario | 🔄 SYNC en el tablero, o `/sincronizar-correo` |
 | Para escribirle a un candidato o al cliente | `/redactar-mensaje` |
 | Cuando hay finalistas | `/armar-terna` |
+| Si le compartís el avance al cliente en Google Sheets y Drive | `/vista-cliente` |
 | Los viernes | `/reporte-semanal` |
 | Cuando una búsqueda se traba | `/diagnostico-proceso` |
 | Para ver todo lo que hay | `/mapa-de-skills` |
@@ -74,8 +76,8 @@ No hace falta acordarse de los nombres: si le pedís algo con tus palabras, Clau
 Abrí `tablero/tablero.html` con doble clic y dejalo abierto en una pestaña. Muestra:
 
 - **Hoy:** qué hay que hacer hoy.
-- **Para revisar:** lo que trajo la sincronización con Gmail y Calendar y necesita una decisión.
-- **Alertas:** devoluciones atrasadas, búsquedas sin movimiento o pasadas de fecha, datos de candidatos que ya hay que borrar.
+- **Para revisar:** lo que trajo la sincronización con Gmail, Calendar y el Sheet del cliente, y necesita una decisión.
+- **Alertas:** devoluciones atrasadas, búsquedas sin movimiento o pasadas de fecha, datos de candidatos que ya hay que borrar, cambios que el cliente todavía no ve y búsquedas cerradas que siguen compartidas.
 - **Números:** búsquedas abiertas, candidatos activos, devoluciones al día y acciones vencidas.
 - **Cartera:** cada búsqueda con su estado y su próximo paso.
 - **Pipeline:** los candidatos de la búsqueda elegida, por etapa, con su evaluación contra el scorecard.
@@ -99,7 +101,7 @@ recruiting-os/
 ├── tablero/           tablero.html (abrilo con doble clic)
 ├── plantillas/        Lo que copian /empezar y /nueva-busqueda
 ├── pruebas/           Material ficticio para probar el sistema
-└── .claude/skills/    Los 21 skills
+└── .claude/skills/    Los 22 skills
 ```
 
 ### Los skills
@@ -119,6 +121,7 @@ recruiting-os/
 | `armar-terna` | Compara finalistas y arma la presentación al cliente. Claude nunca elige |
 | `redactar-mensaje` | Contacto, follow-up, devolución, mensajes al cliente, con la voz de la consultora |
 | `reporte-semanal` | Repaso de la cartera, reporte al cliente y retro de cierre |
+| `vista-cliente` | Opcional: la búsqueda compartida con el cliente en un Google Sheet protegido y una carpeta de Drive. El cliente no necesita Claude |
 
 **Estrategia de la búsqueda**
 
@@ -149,6 +152,7 @@ recruiting-os/
 - **Tu copia, en cambio, tiene datos de candidatos: no la subas a un repositorio público.** Tampoco uses un fork público para guardar tus búsquedas. Si querés respaldo, una nube de la empresa o un repositorio **privado**.
 - `contexto/privacidad.md` es un punto de partida, no asesoramiento legal: revisalo con quien asesore a la consultora según los países donde trabaja.
 - Cada persona del equipo tiene su propia carpeta: la versión actual no comparte las búsquedas entre computadoras.
+- **Con la vista del cliente (opcional),** una parte sale de la computadora a propósito: los candidatos que aceptaron ser presentados, con su evaluación y un CV sin datos personales, van a una carpeta de Drive de la consultora compartida con mails puntuales del cliente. Nada se publica ni se comparte sin tu OK, y al cerrar la búsqueda la carpeta va a la papelera. Lo que el cliente descargó mientras tuvo acceso queda fuera del alcance de la consultora.
 
 ## Actualizar el sistema
 
