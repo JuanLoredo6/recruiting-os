@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna y de Paweł Huryn (MIT); ver
 
 Cuando una búsqueda se traba, la reacción típica es hacer más de lo mismo: más mensajes, más perfiles. Este skill frena antes, separa el síntoma de la causa y cierra con hasta tres hipótesis que se pueden probar esta semana.
 
-Hablá en rioplatense, con voseo, frases cortas.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), frases cortas.
 
 ## Alcance
 

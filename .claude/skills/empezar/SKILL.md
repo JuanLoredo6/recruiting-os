@@ -8,7 +8,7 @@ license: "MIT. Ver LICENSE en la raíz del repo."
 
 Es la primera sesión de una consultora con el sistema. Tiene que ser concreta y corta: en 40 o 50 minutos sale con su forma de trabajar cargada, sus búsquedas en curso en el tablero y una idea clara de qué hacer mañana.
 
-Hablá en rioplatense, con voseo, frases cortas. Una pregunta o una ronda por vez.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), frases cortas. Una pregunta o una ronda por vez.
 
 ## Paso 0: ¿ya está empezado?
 
@@ -79,6 +79,7 @@ Con el método de `.claude/skills/poner-a-prueba/SKILL.md#método` (rondas numer
 
 **Ronda 1, quiénes son y qué toman** → `contexto/consultora.md`:
 - Equipo, países, idiomas.
+- **Idioma de la conversación:** español rioplatense (por defecto) o portugués de Brasil. Preguntalo solo si te escriben en portugués o la consultora trabaja en Brasil, y anotalo en `## Idioma de la conversación`.
 - Áreas (Producto, Atención al cliente o las dos), seniorities y tipo de empresa cliente.
 - Qué no toman.
 

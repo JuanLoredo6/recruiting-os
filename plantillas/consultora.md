@@ -10,6 +10,13 @@
 - **Países y zonas horarias en los que trabajamos:**
 - **Idiomas de trabajo:**
 
+## Idioma de la conversación
+
+<!-- En qué idioma habla Claude con la consultora: español rioplatense (por defecto) o portugués de Brasil.
+     Los textos para candidatos y clientes van en el idioma de cada uno (ver «Idioma» en CLAUDE.md). -->
+
+- español rioplatense
+
 ## Qué búsquedas tomamos
 
 - **Áreas:** <!-- Producto, Atención al cliente, o las dos -->

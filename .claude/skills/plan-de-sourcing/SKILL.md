@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 Buscar "Product Manager" en LinkedIn trae miles de perfiles que no se parecen entre sí. Buscar a "quien llevó el checkout de una billetera en los últimos dos años" trae pocos y buenos. Este skill traduce el scorecard en dónde y cómo buscar.
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## Antes de empezar
 
@@ -41,7 +41,7 @@ Por cada criterio: qué palabras o señales lo muestran en un perfil (títulos, 
 Para LinkedIn (búsqueda de personas o Recruiter, según lo que tenga la consultora) y para Google (`site:linkedin.com/in`):
 
 - De 3 a 5 búsquedas, de la más precisa a la más amplia, cada una con qué criterio ataca.
-- Sinónimos en español, inglés y portugués si la búsqueda es regional ("atención al cliente" OR "customer support" OR "CX" OR "atendimento").
+- Sinónimos en español, inglés y portugués si la búsqueda es regional ("atención al cliente" OR "customer support" OR "CX" OR "atendimento"). Para Brasil, las seniorities y los títulos de `.claude/skills/redactar-aviso/portugues.md` (Pleno, Sênior, Coordenador).
 - Exclusiones útiles (NOT para títulos que no aplican, como recruiters o ventas).
 - Una línea con qué revisar a mano en cada resultado.
 

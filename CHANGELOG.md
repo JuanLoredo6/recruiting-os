@@ -4,10 +4,36 @@ Todos los cambios del Recruiting OS, de la versión más nueva a la más vieja. 
 
 ## [Sin publicar]
 
+## [0.5.0] - 2026-11-21
+
+Límites formales con hook de confirmación, evals automáticas, STAR-L en las entrevistas y portugués de Brasil. Trae a la par lo que `busqueda-laboral-os` sumó en sus versiones 0.8 a 0.10.
+
 ### Agregado
 
+- **Límites formales.** `CLAUDE.md` separa «Límites» (L1 a L15, cada uno con su control) de «Estilo y forma de trabajo». Se suman: lo que no se menciona nunca de `consultora.md` (L6), los datos de candidatos y clientes no salen a servicios externos (L8), no se borran ni se pisan archivos sin confirmación (L9), lo que corre solo únicamente lee y aplica lo inequívoco (L10) y ni dictamen legal, ni laboral, ni impositivo (L11). Los skills y `evals/casos.json` citan cada límite por su ID.
+- **Hook `PreToolUse`** (`.claude/hooks/confirmar-salida.sh`): pide confirmación antes de cualquier herramienta que envíe o modifique mails, etiquetas o eventos, o que cree, escriba, comparta o mande a la papelera algo en Google Drive o Sheets, también en modo automático. Filtra por el nombre de la herramienta, así que funciona con cualquier ID de conector.
+- **Evals del sistema** (`evals/`): Faro Talento, una consultora ficticia armada con el material de `pruebas/`; 28 casos de disparo (qué skill carga cada pedido, en español y en portugués) y 14 de comportamiento (no inventar, inyección en un CV, datos sensibles, notas con la edad, requisito discriminatorio, Claude no elige, honorarios, consulta legal, fuera de alcance, voz, no pisar el CV, STAR-L y aviso en portugués), con controles de código, su autotest y un juez Haiku. El workflow `evals.yml` los corre en los pull requests que tocan skills, `CLAUDE.md`, plantillas, hooks o evals.
+- **STAR-L en las entrevistas** (`guia-de-entrevista/star-l.md`): las preguntas de comportamiento se repreguntan por situación, tarea, acción, resultado y aprendizaje, y `registrar-entrevista` anota cada historia por paso. Lo que el candidato no contó va con ❓ y nunca se deduce (límite L1); un criterio pasa a ✅ solo con acción y resultado propios.
+- **Tipos de pregunta de Producto** en `criterio-producto.md` (product sense, estrategia, analítica, ejecución y técnica para Producto), con qué observar primero en cada uno y ejemplos de productos de la región. La clasificación toma como referencia un artículo de Paweł Huryn; ver `CREDITOS.md`.
+- **Portugués de Brasil.** Claude conversa en portugués si la consultora lo elige (nuevo campo `## Idioma de la conversación` en `plantillas/consultora.md`; `empezar` lo pregunta) y escribe en portugués avisos, mensajes, pitch y guías de entrevista. `redactar-aviso/portugues.md` trae las convenciones del mercado (Júnior, Pleno, Sênior; CLT y PJ como dato del cliente; secciones del aviso), los falsos amigos, las vagas afirmativas y el camino inverso. Nueva sección «Idioma» en `CLAUDE.md`.
+- `README.pt-BR.md`, enlazado desde los README en español e inglés. `INSTALACION.md` guía la instalación en portugués si la persona lo pide.
 - Releases automáticas: al subir un tag `vX.Y.Z`, el workflow `Release` crea la release de GitHub con las notas de su sección del CHANGELOG y falla si queda algún tag sin release. El proceso está en `.github/RELEASE.md`.
-- README en inglés (`README.en.md`), con un selector de idioma arriba de los dos README. El sistema sigue funcionando en español.
+- README en inglés (`README.en.md`), con un selector de idioma arriba de los README.
+
+### Cambia
+
+- `evaluar-candidato` suma el criterio **Alcance y ownership**: separa lo que la persona ejecutó dentro de un plan ajeno de lo que llevó de punta a punta, y un logro en «nosotros» sin su parte queda 🟡 o ❓.
+- `CLAUDE.md` pide el bloque ```text para todo texto que la consultora copia o envía, variantes incluidas, y una línea en «Sin publicar» del CHANGELOG por cada cambio del sistema.
+- Todos los skills: «Hablá en rioplatense» suma la excepción del portugués de Brasil. `redactar-aviso`, `pitch-del-rol`, `redactar-mensaje`, `guia-de-entrevista` y `plan-de-sourcing` remiten a `portugues.md`; `mapa-de-skills` suma las filas de STAR-L y portugués.
+- `plantillas/privacidad.md` y el límite L7 nombran también el RG y la carteira de trabalho (CTPS).
+- `redactar-mensaje`: la logística (duración, formato, quién entrevista, qué se evalúa) tampoco se inventa. Si no está en el pedido o en los archivos, no entra al texto para copiar, y los ejemplos de `voz.md` son tono, no datos. Lo encontró el eval `c-voz-mensaje`.
+- `vista-cliente` avisa que el hook pide confirmación en cada escritura y recomienda publicar en un solo pedido de actualización.
+- `pruebas/README.md`: el pedido de `poner-a-prueba` trae un requisito concreto, como el caso de disparo.
+- `.gitignore` suma `__pycache__/` y `evals/resultados/`.
+
+### Corregido
+
+- El ejemplo de cierre de `registrar-entrevista` citaba como de Joaquín una historia del CV de Martina. Ahora usa lo que dicen las notas de su screening.
 
 ## [0.4.0] - 2026-11-16
 
@@ -106,7 +132,8 @@ Base del sistema y núcleo para los primeros pilotos (fases 0 y 1).
 - Hook de Claude Code que valida `busquedas.json` con `validar.py` y regenera `datos.js` después de cada edición.
 - Licencia MIT y créditos a los skills de origen.
 
-[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.4.0...HEAD
+[Sin publicar]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/JuanLoredo6/recruiting-os/compare/v0.3.0...v0.3.1

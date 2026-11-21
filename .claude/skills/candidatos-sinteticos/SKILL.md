@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 Prueba una pieza de la búsqueda (aviso, mensaje de sourcing, pitch del rol, guía de entrevista, devolución) contra personajes simulados con rasgos explícitos. Sirve para encontrar defectos antes de gastar el primer contacto con un candidato real.
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## Regla número uno
 

@@ -67,3 +67,5 @@ Respuesta floja: pide sumar gente o hacer horas extra, sin preguntar qué tipo d
 Respuesta correcta: encuentra el motivo, propone una respuesta rápida (macro, aviso en la web, mensaje proactivo) y avisa al área de logística.
 Respuesta muy buena: además, cuida al equipo en el pico, define cómo va a saber que bajó y propone que el próximo cambio de proveedor pase antes por Atención.
 ```
+
+Las preguntas de comportamiento (un cliente enojado, un equipo que no llegaba a los tiempos, una decisión de turnos que salió mal) se repreguntan con STAR-L: ver `star-l.md`.

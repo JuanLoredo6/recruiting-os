@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "consultora": "Faro Talento",
+  "actualizado": "2026-11-18T18:00",
+  "clientes": [
+    { "id": "nimbo", "nombre": "Nimbo Pagos", "contacto": "Carla Ruiz (Head of Product)" }
+  ],
+  "busquedas": [
+    {
+      "id": "nimbo-product-manager-sr",
+      "cliente": "nimbo",
+      "rol": "Product Manager Sr · Cobros · remoto AR/UY",
+      "area": "producto",
+      "hiringManager": "Carla Ruiz (Head of Product)",
+      "estado": "abierta",
+      "resultado": null,
+      "abierta": "2026-11-10",
+      "objetivoCierre": "2026-12-19",
+      "proximo": "Screening con Martina y registrar el de Joaquín",
+      "ultimaNovedad": "2026-11-18",
+      "candidatos": [
+        {
+          "id": "martina-l", "nombre": "Martina López", "fuente": "Referido", "etapa": "screening", "motivo": null,
+          "evaluacion": { "cumple": 4, "parcial": 1, "noCumple": 0, "falta": 1 },
+          "ultimaNovedad": "2026-11-12", "devolucion": "no-aplica", "consentimiento": "2026-11-12", "borrarEl": "2027-12-19",
+          "historial": [ { "fecha": "2026-11-12", "texto": "Evaluación inicial sobre el CV" } ]
+        },
+        {
+          "id": "joaquin-r", "nombre": "Joaquín Ríos", "fuente": "Aviso", "etapa": "screening", "motivo": null,
+          "evaluacion": { "cumple": 1, "parcial": 2, "noCumple": 0, "falta": 3 },
+          "ultimaNovedad": "2026-11-18", "devolucion": "no-aplica", "consentimiento": "2026-11-11", "borrarEl": "2027-12-19",
+          "historial": [ { "fecha": "2026-11-18", "texto": "Screening con Nico" } ]
+        },
+        {
+          "id": "lucas-f", "nombre": "Lucas Fernández", "fuente": "Aviso", "etapa": "contactado", "motivo": null,
+          "evaluacion": null,
+          "ultimaNovedad": "2026-11-13", "devolucion": "no-aplica", "consentimiento": "2026-11-13", "borrarEl": "2027-12-19",
+          "historial": [ { "fecha": "2026-11-13", "texto": "Se postuló al aviso" } ]
+        }
+      ],
+      "historial": [ { "fecha": "2026-11-10", "texto": "Arranque con Carla: scorecard de 6 criterios" } ]
+    }
+  ],
+  "acciones": [
+    { "id": "a-20261118-1", "texto": "Registrar el screening de Joaquín", "busqueda": "nimbo-product-manager-sr", "candidato": "joaquin-r",
+      "fecha": "2026-11-19", "prioridad": "alta", "hecha": false, "hechaEl": null,
+      "pedido": "/registrar-entrevista nimbo-product-manager-sr joaquin-r" }
+  ],
+  "sync": { "ultima": null, "ultimoIntento": null, "programada": false, "horario": "", "error": null, "procesados": [], "porRevisar": [] }
+}

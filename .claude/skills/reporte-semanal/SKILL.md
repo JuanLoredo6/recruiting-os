@@ -8,7 +8,7 @@ license: "MIT. Ver LICENSE en la raíz del repo."
 
 Una consultora con varias búsquedas abiertas pierde el hilo sin un momento fijo para mirar el conjunto, y un cliente que no recibe noticias asume que no pasa nada. Este skill resuelve las dos cosas con los datos del tablero.
 
-Hablá en rioplatense, con voseo. Reconocé lo hecho antes de marcar lo que falta.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`). Reconocé lo hecho antes de marcar lo que falta.
 
 ## Modos
 
