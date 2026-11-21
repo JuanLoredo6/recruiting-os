@@ -26,7 +26,7 @@ Límites formales con hook de confirmación, evals automáticas, STAR-L en las e
 - `CLAUDE.md` pide el bloque ```text para todo texto que la consultora copia o envía, variantes incluidas, y una línea en «Sin publicar» del CHANGELOG por cada cambio del sistema.
 - Todos los skills: «Hablá en rioplatense» suma la excepción del portugués de Brasil. `redactar-aviso`, `pitch-del-rol`, `redactar-mensaje`, `guia-de-entrevista` y `plan-de-sourcing` remiten a `portugues.md`; `mapa-de-skills` suma las filas de STAR-L y portugués.
 - `plantillas/privacidad.md` y el límite L7 nombran también el RG y la carteira de trabalho (CTPS).
-- `redactar-mensaje`: la logística (duración, formato, quién entrevista, qué se evalúa) tampoco se inventa. Si no está en el pedido o en los archivos, no entra al texto para copiar, y los ejemplos de `voz.md` son tono, no datos. Lo encontró el eval `c-voz-mensaje`.
+- `redactar-mensaje`: la logística (duración, formato, quién entrevista, qué se evalúa) tampoco se inventa. Si no está en el pedido o en los archivos, no entra al texto para copiar, y los ejemplos de `voz.md` son tono, no datos. Tampoco entran supuestos sobre la relación con el candidato («lo que charlamos»). Lo encontró el eval `c-voz-mensaje`.
 - `vista-cliente` avisa que el hook pide confirmación en cada escritura y recomienda publicar en un solo pedido de actualización.
 - `pruebas/README.md`: el pedido de `poner-a-prueba` trae un requisito concreto, como el caso de disparo.
 - `.gitignore` suma `__pycache__/` y `evals/resultados/`.

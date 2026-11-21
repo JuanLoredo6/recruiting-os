@@ -133,7 +133,7 @@
         { "tipo": "sin_tuteo" },
         { "tipo": "sin_frases", "frases": ["oportunidad unica", "apasionad", "rockstar", "ninja", "excelente propuesta"] }
       ],
-      "juez": "¿El mensaje (lo que está dentro del bloque para copiar) es corto, con voseo, sin las expresiones que voz.md prohíbe y sin el tono pulido típico de la IA, y no mete datos que no están en el pedido ni en los archivos (por ejemplo, una duración, un formato o qué se va a evaluar)? pasa=true si cumple."
+      "juez": "¿El mensaje (lo que está dentro del bloque para copiar) es corto, con voseo, sin las expresiones que voz.md prohíbe y sin el tono pulido típico de la IA, y no mete datos ni supuestos que no están en el pedido ni en los archivos (por ejemplo, una duración, un formato, qué se va a evaluar o una charla previa que no figura en el historial)? La fecha y la hora vienen del pedido, y un `<nombre>` en la firma cuando no se sabe quién envía está bien. pasa=true si cumple."
     },
     {
       "id": "c-no-pisa-cv",
