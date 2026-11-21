@@ -1,6 +1,6 @@
 # Recruiting OS
 
-**English** · [Español](README.md)
+**English** · [Español](README.md) · [Português](README.pt-BR.md)
 
 A system to run talent searches with **Claude Code**, with judgment: the kickoff with the hiring manager, a scorecard you can actually evaluate against, every candidate assessed against that scorecard, interviews, the shortlist, feedback to every candidate, and a dashboard that tells you what to do today. Everything stays in folders on the recruiter's own computer.
 
@@ -8,14 +8,15 @@ It is built for **boutique recruiting firms and independent recruiters in Latin 
 
 It is the other side of [busqueda-laboral-os](https://github.com/JuanLoredo6/busqueda-laboral-os), the system for people looking for a job.
 
-> **Language:** the system works in Spanish (Rioplatense). Commands, skills, templates and the dashboard are in Spanish. This page explains what it does for English-speaking readers.
+> **Language:** the system talks to the firm in Spanish (Rioplatense) or Brazilian Portuguese, and writes each job post, message or interview guide in the reader's language, English included. Commands, skills, templates and the dashboard are in Spanish. This page explains what it does for English-speaking readers.
 
 ## How it works
 
 - **AI prepares, people decide.** No score ever rules anyone out. Each candidate is assessed against the scorecard, criterion by criterion, with evidence: ✅ meets · 🟡 partial · ❌ doesn't meet · ❓ unknown.
 - **Blind on protected attributes.** Age, gender, origin, photo, marital status or health never enter an evaluation. If a client asks for something like that, the system flags it and proposes a behavior-based requirement instead.
 - **Third-party data, handled properly.** Every candidate has their consent recorded and the date their data will be deleted. `/privacidad` reviews what has expired.
-- **Nothing is sent automatically.** Claude drafts messages, job posts, feedback and reports; a person sends them. It does not automate LinkedIn.
+- **Nothing is sent automatically.** Claude drafts messages, job posts, feedback and reports; a person sends them. A hook asks for confirmation before anything is sent or changed in Gmail, Calendar, Drive or Sheets, even when Claude runs in auto mode. It does not automate LinkedIn.
+- **Written, tested limits.** The rules that are never broken are numbered in `CLAUDE.md` (L1 to L15), each with how it is enforced. Automated evals (`evals/`) test them on a fictional firm before every release.
 - **Every candidate gets feedback.** The dashboard flags the ones running late.
 
 ---
@@ -97,14 +98,16 @@ To see it with sample data before loading your own, click **Ver el tablero con d
 ```
 recruiting-os/
 ├── INSTALACION.md     The guided installation guide
-├── CLAUDE.md          Instructions for Claude: scope, rules, folders, data model
+├── CLAUDE.md          Instructions for Claude: scope, limits, language, folders, data model
 ├── contexto/          The firm: who they are, how they work, their voice and their data policy
 ├── clientes/          One folder per client
 ├── busquedas/         busquedas.json (dashboard data) + one folder per search with its candidates
 ├── investigacion/     Dated reports: market, diagnoses, metrics, learnings
 ├── tablero/           tablero.html (open it with a double click)
 ├── plantillas/        What /empezar and /nueva-busqueda copy
-├── pruebas/           Fictional material to try the system
+├── pruebas/           Fictional material to try the system by hand
+├── evals/             Automated tests of the system on a fictional firm
+├── .claude/hooks/     confirmar-salida.sh: asks for confirmation before sending or publishing
 └── .claude/skills/    The 22 skills
 ```
 
@@ -116,12 +119,12 @@ recruiting-os/
 |---|---|
 | `empezar` | Setup: the firm, its method, its voice, its data policy, clients and searches in progress |
 | `nueva-busqueda` | Kickoff with the hiring manager: role profile, requirements put to the test, and scorecard |
-| `redactar-aviso` | The job post, built from the scorecard, per channel |
+| `redactar-aviso` | The job post, built from the scorecard, per channel, also in Brazilian Portuguese |
 | `evaluar-candidato` | Each profile against the scorecard, with evidence and no scores |
 | `actualizar` | Takes every update to the dashboard and creates the next actions |
 | `sincronizar-correo` | Brings in what arrived by Gmail and Calendar, read-only |
-| `guia-de-entrevista` | Interview guide for the search, for each candidate and for the hiring manager, with Product and Customer Support criteria |
-| `registrar-entrevista` | What the candidate said, kept apart from impressions, against the scorecard |
+| `guia-de-entrevista` | Interview guide for the search, for each candidate and for the hiring manager, with Product and Customer Support criteria and STAR-L follow-up questions |
+| `registrar-entrevista` | What the candidate said, kept apart from impressions, against the scorecard, with each story broken down by STAR-L step |
 | `armar-terna` | Compares finalists and builds the shortlist presentation for the client. Claude never picks |
 | `redactar-mensaje` | Outreach, follow-ups, feedback and client messages, in the firm's voice |
 | `reporte-semanal` | Portfolio review, client report and closing retro |
@@ -161,6 +164,8 @@ recruiting-os/
 ## Updating the system
 
 When there are improvements, ask Claude «actualizá el sistema» or run `git pull`. Your data is not touched: it lives outside what is versioned. What changed in each version is in [CHANGELOG.md](CHANGELOG.md) and in the [releases](https://github.com/JuanLoredo6/recruiting-os/releases).
+
+If you adapt the system (a skill, a template, `CLAUDE.md`), run the evals before using it with real data: `python evals/correr.py --autotest`, then `--solo disparo` and `--solo comportamiento`. See [evals/README.md](evals/README.md).
 
 ## Credits
 

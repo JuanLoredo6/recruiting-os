@@ -41,3 +41,17 @@ Piezas de los repositorios de **Paweł Huryn** ([pm-skills](https://github.com/p
 | `summarize-interview` ([pm-skills](https://github.com/phuryn/pm-skills)) | `registrar-entrevista`, plantilla del registro |
 | Esquema de decisiones de [pm-brain](https://github.com/phuryn/pm-brain) | `poner-a-prueba`, «Qué la haría cambiar» |
 | `strategy-red-team` ([pm-skills](https://github.com/phuryn/pm-skills)) | `diagnostico-proceso`, «Primero la mejor versión» |
+| Clasificación de [Product Manager Interview Questions](https://www.productcompass.pm/p/product-manager-interview-questions) (The Product Compass, sin licencia abierta: se tomó solo como referencia, sin copiar texto) | `guia-de-entrevista/criterio-producto.md`, «Los tipos de pregunta de Producto» |
+
+## Piezas que vienen de busqueda-laboral-os
+
+Además de los skills de arriba, estas piezas se adaptaron de [busqueda-laboral-os](https://github.com/JuanLoredo6/busqueda-laboral-os) (licencia MIT), del mismo autor:
+
+| Original | Adaptado |
+|---|---|
+| Límites formales con ID y control (`CLAUDE.md`, «Límites») | `CLAUDE.md`, «Límites» (L1 a L15) |
+| Hook `confirmar-salida.sh` | `.claude/hooks/confirmar-salida.sh`, ampliado a Google Drive y Sheets |
+| Evals del sistema (`evals/`: corredor, controles de código y juez) | `evals/`, sobre una consultora ficticia |
+| STAR-L en `preparar-entrevista` | `guia-de-entrevista/star-l.md`, desde el lado de quien entrevista |
+| `mejorar-perfil/cv-en-portugues.md` | `redactar-aviso/portugues.md`, para avisos, mensajes y guías |
+| Criterio «Alcance y ownership» de `mejorar-perfil` | `evaluar-candidato`, para leer trayectorias |

@@ -8,7 +8,7 @@ license: "MIT. Ver LICENSE en la raíz del repo."
 
 Los candidatos no eligieron estar en esta computadora. Este skill hace que la política de la consultora se cumpla de verdad: lo vencido se borra, lo que se guarda tiene permiso y lo sensible no entra.
 
-Hablá en rioplatense, con voseo, corto.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), corto.
 
 > ❓ Este skill aplica la política que escribió la consultora en `contexto/privacidad.md`. No es asesoramiento legal: si una situación no está cubierta por la política (un pedido formal de acceso a los datos, una autoridad que pregunta), decilo y recomendá consultarlo con quien asesore a la consultora.
 

@@ -8,7 +8,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 > Adaptado de `product-builder-resolver`, de Pedro Romero Luna ([ai-first-product-skills](https://github.com/pedroromeroluna/ai-first-product-skills), licencia MIT), a través de `busqueda-laboral-os`.
 
-Una fila por necesidad. La columna Skill dice cuál cargar; todos viven en `.claude/skills/<skill>/SKILL.md`. Hablá en rioplatense, con voseo.
+Una fila por necesidad. La columna Skill dice cuál cargar; todos viven en `.claude/skills/<skill>/SKILL.md`. Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## El día a día
 
@@ -19,11 +19,13 @@ Una fila por necesidad. La columna Skill dice cuál cargar; todos viven en `.cla
 | Abrir una búsqueda con las notas del arranque: perfil del rol y scorecard | `nueva-busqueda` |
 | Ajustar el scorecard porque el cliente cambió lo que busca | `nueva-busqueda` (modo ajustar) |
 | Redactar o revisar el aviso para LinkedIn, portales o la web del cliente | `redactar-aviso` |
+| El aviso, un mensaje o la guía en portugués de Brasil | `redactar-aviso`, `redactar-mensaje` o `guia-de-entrevista` (con `redactar-aviso/portugues.md`) |
 | Evaluar uno o varios CVs o perfiles contra el scorecard | `evaluar-candidato` |
 | Contar una novedad (respondió, la entrevistaron, la descartaron, aceptó) y actualizar el tablero | `actualizar` |
 | Traer al tablero lo que llegó por Gmail o Google Calendar (botón 🔄 SYNC, o sola cada 2 horas) | `sincronizar-correo` |
 | Armar la guía de entrevista de la búsqueda, de un candidato o para el hiring manager | `guia-de-entrevista` |
 | Armar un caso de Producto o de Atención al cliente para la entrevista | `guia-de-entrevista` (sus criterios de producto y de atención) |
+| Preguntas de comportamiento con repreguntas en STAR-L, y cómo registrar cada historia | `guia-de-entrevista` (su parte `star-l.md`) y `registrar-entrevista` |
 | Registrar una entrevista o el feedback del cliente contra el scorecard | `registrar-entrevista` |
 | Comparar finalistas, decidir la terna y armar su presentación al cliente | `armar-terna` |
 | Ayudar al cliente a decidir entre dos finalistas | `armar-terna` (modo desempatar) |

@@ -6,7 +6,7 @@
 
 Define el indicador principal de la consultora (o de una búsqueda), el árbol de palancas que lo sostienen, un número por hipótesis activa y las antimétricas.
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## La entrevista
 

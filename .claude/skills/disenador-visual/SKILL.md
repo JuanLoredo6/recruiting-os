@@ -16,7 +16,7 @@ Escribe qué tiene que decir una pieza visual y cómo se organiza, antes de abri
 
 **La especificación es el entregable. Construirla es una rama que solo se abre si hay con qué.**
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## Regla número uno
 

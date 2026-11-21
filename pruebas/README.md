@@ -2,6 +2,8 @@
 
 Material **ficticio** para probar el sistema antes de usarlo con datos reales: en una demo, al implementarlo en una consultora o después de cambiar un skill. Todas las empresas, personas y números son inventados.
 
+Este recorrido es a mano y de punta a punta. Para comprobar en minutos que un cambio no rompió nada (qué skill carga cada pedido y si se respetan los límites), están las evals automáticas: `python evals/correr.py`, ver `evals/README.md`. Usan este mismo material, armado como la consultora ficticia de `evals/consultora/`.
+
 ## Cómo se usa
 
 1. Hacé una copia del sistema en otra carpeta (por ejemplo, `recruiting-os-prueba`). **No pruebes en la carpeta donde están tus datos reales.**
@@ -138,7 +140,7 @@ Abrí una sesión nueva en la copia, pegá el pedido y fijate qué skill carga C
 | "¿Qué aprendimos de las últimas cinco búsquedas?" | `aprendizajes` | `diagnostico-proceso` |
 | "¿Cómo vamos esta semana?" | `reporte-semanal` | `diagnostico-proceso` |
 | "Paula pidió que la borremos" | `privacidad` | `actualizar` |
-| "Este requisito del cliente, ¿tiene sentido?" | `poner-a-prueba` | `nueva-busqueda` |
+| "Carla pide 8 años de experiencia mínimo, ¿ese requisito tiene sentido?" | `poner-a-prueba` | `nueva-busqueda` |
 | "Quiero que la terna se vea mejor" | `disenador-visual` | `armar-terna` |
 | "Compartí la búsqueda con Carla en un Sheet" | `vista-cliente` | `reporte-semanal` |
 | "¿Qué puedo hacer con este sistema?" | `mapa-de-skills` | — |

@@ -1,6 +1,6 @@
 ---
 name: redactar-aviso
-description: "Redacta el aviso de una búsqueda a partir del perfil del rol y su scorecard: un título que la gente busca, qué va a lograr la persona, el contexto real del equipo, excluyentes y deseables separados (pocos y observables), condiciones, proceso y tiempos, con lenguaje inclusivo y sin requisitos discriminatorios. Entrega versiones para LinkedIn, portales de LATAM y la web del cliente, con sus largos, y revisa un aviso que ya existe. Nunca lo publica. Usala cuando digan 'armá el aviso', 'necesito publicar la búsqueda', 'revisá este aviso', 'el aviso no trae a nadie', 'pasalo a LinkedIn', o desde una acción del tablero."
+description: "Redacta el aviso de una búsqueda a partir del perfil del rol y su scorecard: un título que la gente busca, qué va a lograr la persona, el contexto real del equipo, excluyentes y deseables separados (pocos y observables), condiciones, proceso y tiempos, con lenguaje inclusivo y sin requisitos discriminatorios. Entrega versiones para LinkedIn, portales de LATAM y la web del cliente, con sus largos, también en portugués de Brasil o en inglés, y revisa un aviso que ya existe. Nunca lo publica. Usala cuando digan 'armá el aviso', 'necesito publicar la búsqueda', 'revisá este aviso', 'el aviso no trae a nadie', 'pasalo a LinkedIn', 'el aviso en portugués', 'preciso do anúncio da vaga', o desde una acción del tablero."
 license: "MIT. Ver LICENSE en la raíz del repo."
 ---
 
@@ -8,7 +8,7 @@ license: "MIT. Ver LICENSE en la raíz del repo."
 
 Un aviso con 15 requisitos espanta a buenos candidatos (muchos no se postulan si no cumplen todo) y atrae a los que se postulan a todo. Uno armado desde el scorecard dice qué va a lograr la persona y pide solo lo que de verdad importa.
 
-Hablá en rioplatense, con voseo. El aviso va en el idioma y el registro que decida la consultora.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`). El aviso va en el idioma y el registro que decida la consultora. Si va en portugués de Brasil, leé y seguí `.claude/skills/redactar-aviso/portugues.md` (convenciones del mercado, falsos amigos, vagas afirmativas y la tabla de decisiones de traducción).
 
 ## Antes de escribir
 
@@ -64,6 +64,6 @@ Si pegan un aviso ya publicado o el que mandó el cliente: compará contra el pe
 
 ## Reglas
 
-- Nada que el perfil del rol o el cliente no confirmen: ni beneficios, ni rango, ni datos de la empresa.
-- Ningún requisito discriminatorio, aunque lo pida el cliente.
-- Claude nunca publica.
+- Nada que el perfil del rol o el cliente no confirmen: ni beneficios, ni rango, ni régimen de contratación, ni datos de la empresa (límite L1).
+- Ningún requisito discriminatorio, aunque lo pida el cliente (límite L13).
+- Claude nunca publica (límite L3).

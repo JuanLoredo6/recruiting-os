@@ -18,3 +18,6 @@ Thumbs.db
 # Material interno de quien vende e implementa el sistema
 taller/
 PLAN.md
+
+__pycache__/
+evals/resultados/

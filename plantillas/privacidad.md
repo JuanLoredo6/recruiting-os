@@ -13,7 +13,7 @@
 
 ## Qué no guardamos nunca
 
-- Documento de identidad, CUIL/CPF/CURP/RUT o similar.
+- Documento de identidad, CUIL, CPF, RG, CURP, RUT o similar, y la carteira de trabalho (CTPS) en Brasil.
 - Fecha de nacimiento, edad, foto.
 - Datos bancarios, domicilio exacto.
 - Salud, discapacidad, religión, orientación sexual, afiliación política o sindical.

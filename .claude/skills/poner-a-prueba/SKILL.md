@@ -13,7 +13,7 @@ Un requisito inflado le cuesta semanas a una búsqueda. Un descarte por intuici�
 - **Solo:** pone a prueba un requisito, un scorecard, una evaluación, un motivo de descarte o una decisión de la consultora.
 - **Como método:** cualquier skill del repo que entrevista cita la sección **Método** en vez de copiarla. Puede cambiar los ejemplos o a quién apunta; el método es uno solo.
 
-Hablá en rioplatense, con voseo, frases cortas.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), frases cortas.
 
 ## Método
 

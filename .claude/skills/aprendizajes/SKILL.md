@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 Corre **después** de tener feedback real acumulado. Toma lo que dijeron clientes y candidatos reales y lo convierte en aprendizajes con su evidencia, en el perfil de lo que valora cada cliente, y en ajustes ordenados contra el objetivo de la consultora.
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## Regla número uno
 

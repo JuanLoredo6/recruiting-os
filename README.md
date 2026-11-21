@@ -1,6 +1,6 @@
 # Recruiting OS
 
-[English](README.en.md) · **Español**
+[English](README.en.md) · **Español** · [Português](README.pt-BR.md)
 
 Un sistema para llevar búsquedas de talento con **Claude Code** y con criterio: el arranque con el hiring manager, un scorecard que se puede evaluar, cada candidato contra ese scorecard, las entrevistas, la terna, las devoluciones y un tablero que dice qué hacer hoy. Todo queda en carpetas de la computadora de la consultora.
 
@@ -13,7 +13,9 @@ Es el otro lado de [busqueda-laboral-os](https://github.com/JuanLoredo6/busqueda
 - **La IA prepara, las personas deciden.** Ningún puntaje descarta a nadie. Cada candidato se evalúa contra el scorecard, criterio por criterio, con evidencia: ✅ cumple · 🟡 parcial · ❌ no cumple · ❓ falta saber.
 - **Evaluación ciega en lo protegido.** Edad, género, origen, foto, estado civil o salud no entran a ninguna evaluación. Si un cliente pide algo así, el sistema lo marca y propone un requisito basado en conducta.
 - **Datos de terceros, en regla.** Cada candidato tiene registrado su consentimiento y la fecha en que se borran sus datos. `/privacidad` revisa lo vencido.
-- **Nada se envía solo.** Claude redacta mensajes, avisos, devoluciones y reportes; los manda una persona. No automatiza LinkedIn.
+- **Nada se envía solo.** Claude redacta mensajes, avisos, devoluciones y reportes; los manda una persona. Un hook pide confirmación antes de cualquier envío o cambio en Gmail, Calendar, Drive o Sheets, aunque Claude trabaje en modo automático. No automatiza LinkedIn.
+- **Límites escritos y probados.** Las reglas que no se rompen están numeradas en `CLAUDE.md` (L1 a L15) y cada una dice cómo se controla. Las evals automáticas (`evals/`) las prueban sobre una consultora ficticia antes de cada versión.
+- **En español o en portugués de Brasil.** Claude conversa en el idioma que elija la consultora y escribe cada aviso, mensaje o guía en el idioma de quien lo lee.
 - **Cada candidato recibe una devolución.** El tablero marca las que se atrasan.
 
 ---
@@ -95,14 +97,16 @@ Para verlo con datos de ejemplo antes de cargar los tuyos, tocá **Ver el tabler
 ```
 recruiting-os/
 ├── INSTALACION.md     La guía de instalación asistida
-├── CLAUDE.md          Instrucciones para Claude: alcance, reglas, carpetas, modelo de datos
+├── CLAUDE.md          Instrucciones para Claude: alcance, límites, idioma, carpetas, modelo de datos
 ├── contexto/          La consultora: quiénes son, cómo trabajan, su voz y su política de datos
 ├── clientes/          Una carpeta por cliente
 ├── busquedas/         busquedas.json (datos del tablero) + una carpeta por búsqueda con sus candidatos
 ├── investigacion/     Informes fechados: mercado, diagnósticos, métricas, aprendizajes
 ├── tablero/           tablero.html (abrilo con doble clic)
 ├── plantillas/        Lo que copian /empezar y /nueva-busqueda
-├── pruebas/           Material ficticio para probar el sistema
+├── pruebas/           Material ficticio para probar el sistema a mano
+├── evals/             Pruebas automáticas del sistema sobre una consultora ficticia
+├── .claude/hooks/     confirmar-salida.sh: pide confirmación antes de enviar o publicar
 └── .claude/skills/    Los 22 skills
 ```
 
@@ -114,12 +118,12 @@ recruiting-os/
 |---|---|
 | `empezar` | Puesta en marcha: la consultora, su método, su voz, su política de datos, clientes y búsquedas en curso |
 | `nueva-busqueda` | Arranque con el hiring manager: perfil del rol, requisitos puestos a prueba y scorecard |
-| `redactar-aviso` | El aviso desde el scorecard, por canal |
+| `redactar-aviso` | El aviso desde el scorecard, por canal, también en portugués de Brasil |
 | `evaluar-candidato` | Cada perfil contra el scorecard, con evidencia y sin puntajes |
 | `actualizar` | Lleva cada novedad al tablero y crea las acciones que siguen |
 | `sincronizar-correo` | Trae lo que llegó por Gmail y Calendar, solo lectura |
-| `guia-de-entrevista` | Guía de la búsqueda, de cada candidato y para el hiring manager, con criterios de Producto y de Atención al cliente |
-| `registrar-entrevista` | Lo que el candidato dijo, separado de la impresión, contra el scorecard |
+| `guia-de-entrevista` | Guía de la búsqueda, de cada candidato y para el hiring manager, con criterios de Producto y de Atención al cliente y repreguntas en STAR-L |
+| `registrar-entrevista` | Lo que el candidato dijo, separado de la impresión, contra el scorecard, con cada historia por paso de STAR-L |
 | `armar-terna` | Compara finalistas y arma la presentación al cliente. Claude nunca elige |
 | `redactar-mensaje` | Contacto, follow-up, devolución, mensajes al cliente, con la voz de la consultora |
 | `reporte-semanal` | Repaso de la cartera, reporte al cliente y retro de cierre |
@@ -159,6 +163,8 @@ recruiting-os/
 ## Actualizar el sistema
 
 Cuando haya mejoras, pedile a Claude "actualizá el sistema" o corré `git pull`. Tus datos no se tocan: están fuera de lo que se versiona. Qué cambió en cada versión está en [CHANGELOG.md](CHANGELOG.md) y en las [releases](https://github.com/JuanLoredo6/recruiting-os/releases).
+
+Si adaptás el sistema (un skill, una plantilla, `CLAUDE.md`), corré las evals antes de usarlo con datos reales: `python evals/correr.py --autotest` y después `--solo disparo` y `--solo comportamiento`. Cómo funcionan está en [evals/README.md](evals/README.md).
 
 ## Créditos
 

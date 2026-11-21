@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 Una búsqueda que arranca con requisitos vagos termina con una terna que el cliente rechaza. Este skill convierte lo que dijo el hiring manager en un perfil del rol que se puede evaluar: qué tiene que lograr la persona, con qué criterios se la evalúa y cómo se ve cada criterio en una trayectoria real.
 
-Hablá en rioplatense, con voseo. Directo: si un requisito no se sostiene, se dice.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`). Directo: si un requisito no se sostiene, se dice.
 
 ## Modos
 

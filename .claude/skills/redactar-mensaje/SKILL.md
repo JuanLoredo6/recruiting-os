@@ -1,6 +1,6 @@
 ---
 name: redactar-mensaje
-description: "Escribe los mensajes de una búsqueda con la voz de la consultora y nunca los envía: primer contacto de sourcing, invitación de conexión, follow-up, invitación a entrevista, devolución a un candidato descartado (con feedback útil y sin atributos protegidos), cierre con quienes no avanzaron, mensajes al hiring manager (preguntas del arranque, guía para entrevistar, pedido de feedback), oferta y bienvenida. Adapta el largo al canal (LinkedIn, mail, WhatsApp) y usa solo datos reales del rol y del candidato. Usala cuando digan 'escribile a X', 'armá la devolución para Y', 'cómo le digo que no avanza', 'mandale un follow-up', 'escribile al hiring manager', 'necesito un mensaje para', o desde una acción del tablero."
+description: "Escribe los mensajes de una búsqueda con la voz de la consultora y nunca los envía: primer contacto de sourcing, invitación de conexión, follow-up, invitación a entrevista, devolución a un candidato descartado (con feedback útil y sin atributos protegidos), cierre con quienes no avanzaron, mensajes al hiring manager (preguntas del arranque, guía para entrevistar, pedido de feedback), oferta y bienvenida. Adapta el largo al canal (LinkedIn, mail, WhatsApp) y usa solo datos reales del rol y del candidato. Usala cuando digan 'escribile a X', 'armá la devolución para Y', 'cómo le digo que no avanza', 'mandale un follow-up', 'escribile al hiring manager', 'necesito un mensaje para', 'escreve para o candidato', o desde una acción del tablero."
 license: "MIT. Adapta material de Paweł Huryn (MIT); ver CREDITOS.md y .claude/skills/LICENSE-phuryn.txt."
 ---
 
@@ -8,7 +8,7 @@ license: "MIT. Adapta material de Paweł Huryn (MIT); ver CREDITOS.md y .claude/
 
 Los mensajes de una búsqueda son la cara de la consultora: el primer contacto decide si un candidato pasivo responde, y la devolución decide si vuelve a confiar en ustedes. Este skill los redacta; la persona los revisa y los manda.
 
-Hablá en rioplatense, con voseo, para explicar. El mensaje va en el idioma y el registro que corresponda (si el destinatario escribe en portugués, en inglés o de usted, se responde igual).
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), para explicar. El mensaje va en el idioma y el registro que corresponda (si el destinatario escribe en portugués, en inglés o de usted, se responde igual). En portugués de Brasil, seguí `.claude/skills/redactar-aviso/portugues.md`.
 
 ## Antes de escribir
 
@@ -53,7 +53,8 @@ Si la persona prefiere no dar motivo, se respeta: el mensaje igual es claro, hum
 ## Reglas de escritura
 
 - **Con la voz de la consultora.** Si `voz.md` está vacío, escribí simple y directo, y preguntá si suena a ellos.
-- **Datos reales:** todo lo que se dice del rol sale de `perfil-del-rol.md`; todo lo que se dice del candidato, de su perfil o de sus entrevistas. Lo que no está, no se dice.
+- **Datos reales (límite L1):** todo lo que se dice del rol sale de `perfil-del-rol.md`; todo lo que se dice del candidato, de su perfil o de sus entrevistas. Lo que no está, no se dice.
+- **La logística tampoco se inventa:** duración, formato (videollamada, presencial), quién entrevista, en qué idioma o qué se va a evaluar en la charla entran al mensaje solo si están en el pedido o en los archivos. Si faltan, el mensaje se escribe sin ellos o con `<duración>`, y afuera del bloque va la pregunta. Los ejemplos de `voz.md` muestran el tono, no son datos: un «20 minutos» de un ejemplo no vale para este mensaje. Lo mismo vale para cualquier supuesto sobre la relación con el candidato («lo que charlamos», «como te comenté»): si no está en el historial, no entra. Aclararlo afuera no alcanza: lo que no está confirmado no entra al texto para copiar.
 - **Sin frases de reclutamiento de plantilla:** nada de "oportunidad única", "excelente propuesta", "empresa líder", "rockstar", "ninja", "espero que este mensaje te encuentre bien", "tu perfil nos pareció muy interesante".
 - **Un solo pedido por mensaje**, y fácil de responder.
 - **El nombre del destinatario**, si se sabe. Si no, no inventes uno: dejá `<nombre>`.

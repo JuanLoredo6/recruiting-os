@@ -39,6 +39,24 @@ Punto de partida para el scorecard. Cada criterio que entra tiene que salir de l
 - **Etapa del producto.** Alguien que solo optimizó productos maduros puede sufrir en un cero a uno, y al revés. Es una pregunta para la entrevista, no un descarte.
 - **Saltos de alcance.** De PM de una feature a Head of Product en un año: preguntar qué cambió en sus decisiones.
 
+## Los tipos de pregunta de Producto
+
+> La clasificación toma como referencia [Product Manager Interview Questions](https://www.productcompass.pm/p/product-manager-interview-questions), de Paweł Huryn (The Product Compass). Ese artículo no tiene licencia abierta: no se copió texto; los ejemplos son propios y usan productos de la región. Son ilustrativos: en la búsqueda real, la pregunta se arma con el problema del rol.
+
+Una guía de Producto no tiene que cubrir todos los tipos: elegí los que miden los criterios del scorecard. Todos se observan con los cuatro pasos de «El caso». Cambia qué mirar primero:
+
+| Tipo | Qué mide | Qué observar primero | Ejemplos |
+|---|---|---|---|
+| **Product sense** (mejorar o diseñar algo) | Empatía con el usuario y conexión con el negocio | ¿Eligió un segmento y dijo por qué? ¿Habló del trabajo que el usuario quiere resolver antes de las funcionalidades? | "Mejorá el link de pago para un comercio que cobra por primera vez." · "Diseñá una función para que un kiosco concilie sus cobros del día." |
+| **Estrategia** | Si ve el mercado, la competencia y dónde jugar | ¿Dio caminos distintos con lo que se gana y se cede en cada uno, y tomó postura? | "¿Debería una fintech de cobros lanzar crédito para comercios?" · "Un competidor bajó comisiones a cero: ¿qué hacés?" |
+| **Analítica y métricas** | Si separa síntoma de causa con datos | ¿Segmentó antes de concluir? ¿Pidió datos en vez de inventarlos? | "La conversión del checkout cayó 15 %: ¿qué mirás primero?" · "¿Cuál sería la métrica principal de este squad?" |
+| **Ejecución** | Cómo lleva una decisión a un lanzamiento | ¿Ordenó dependencias, dijo qué recorta y cómo sabe que salió bien? | "Hay que lanzar QR en otro país en seis meses: ¿cómo lo planificás?" · "El lanzamiento se atrasa dos semanas: ¿qué recortás?" |
+| **Técnica para Producto** | Si habla con Tecnología como par sin ser ingeniero | ¿Nombró el costo técnico de cada camino y preguntó al equipo antes de decidir? | "¿Cómo le explicarías una API a alguien de Comercial?" · "Tecnología propone reescribir la conciliación: ¿cómo decidís si vale la pena?" |
+
+En **product sense**, una respuesta muy buena recorre los cuatro pasos así: diagnóstico (segmento, trabajo a resolver, dolores), varias opciones antes de quedarse con una, una postura por impacto y esfuerzo con lo que queda afuera, y la prueba más barata que podría refutarla con una métrica atada a la experiencia del usuario.
+
+Las preguntas de **comportamiento** (no los casos) se repreguntan con STAR-L: ver `star-l.md`.
+
 ## El caso
 
 En la entrevista, un caso de producto se evalúa con la respuesta en cuatro pasos de un líder de Producto. Lo que hay que observar:

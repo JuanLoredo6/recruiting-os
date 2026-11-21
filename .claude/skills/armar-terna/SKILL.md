@@ -8,7 +8,7 @@ license: "MIT. Ver LICENSE en la raíz del repo."
 
 Al final de una búsqueda, la decisión suele tomarse con lo que se recuerda de la última entrevista. Este skill pone a todos los finalistas contra los mismos criterios, con la misma evidencia, para que la decisión de la consultora y la del cliente se puedan explicar.
 
-Hablá en rioplatense, con voseo. Corto y concreto.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`). Corto y concreto.
 
 ## Regla número uno
 

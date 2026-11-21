@@ -10,7 +10,7 @@ license: "MIT. Adapta material de Pedro Romero Luna (MIT); ver CREDITOS.md y .cl
 
 Investiga el mercado de talento con **fuentes secundarias** (búsquedas públicas de perfiles y avisos, informes salariales y de la industria, noticias de contrataciones y despidos, páginas de empleo de empresas) y lo dimensiona en tres capas, cada número con su fuente y su supuesto. No habla con nadie: eso lo hace la consultora en el sourcing.
 
-Hablá en rioplatense, con voseo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`).
 
 ## Cuándo se usa
 

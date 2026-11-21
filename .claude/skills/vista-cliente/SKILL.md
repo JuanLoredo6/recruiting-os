@@ -10,7 +10,7 @@ Muchas consultoras le muestran el avance al cliente en un Google Sheet y le pasa
 
 La regla de fondo: **el sistema local es la fuente de verdad y el Sheet es una vista.** Se publica desde acá, nunca al revés. Lo único que vuelve son las dos columnas del cliente, y lo que dicen va a «Para revisar»: decide la persona.
 
-Hablá en rioplatense, con voseo, corto. El formato está en `plantillas/vista-cliente.md` (o en `contexto/vista-cliente.md` si la consultora lo ajustó): leelo antes de cualquier modo.
+Hablá en rioplatense, con voseo (o en portugués de Brasil, si la consultora lo eligió: ver «Idioma» en `CLAUDE.md`), corto. El formato está en `plantillas/vista-cliente.md` (o en `contexto/vista-cliente.md` si la consultora lo ajustó): leelo antes de cualquier modo.
 
 ## Modos
 
@@ -28,7 +28,7 @@ Sin `<cliente-rol>`, preguntá cuál. Si la búsqueda no tiene `vistaCliente`, c
 
 ## Reglas (valen en todos los modos)
 
-- **Nada sale sin OK.** Crear, publicar, compartir, subir y mandar a la papelera es mandarle algo al cliente. Antes de cada uno, mostrá qué va a pasar (qué archivos, qué filas, qué mails) y esperá un sí para ese caso. Un OK no vale para la próxima publicación.
+- **Nada sale sin OK (límite L14).** El hook `confirmar-salida.sh` también lo pide antes de cada herramienta que escribe o comparte en Drive o Sheets: conviene publicar en un solo pedido de actualización para no confirmar de más. Crear, publicar, compartir, subir y mandar a la papelera es mandarle algo al cliente. Antes de cada uno, mostrá qué va a pasar (qué archivos, qué filas, qué mails) y esperá un sí para ese caso. Un OK no vale para la próxima publicación.
 - **Solo candidatos presentados.** Al Sheet y a Drive entra solo quien tiene `presentadoEl`, es decir, quien aceptó ser presentado a ese cliente. Si la persona quiere sumar a alguien sin `presentadoEl`, frená y proponé pedirle el OK al candidato con `/redactar-mensaje consentimiento-presentacion`.
 - **Nada protegido ni confidencial.** Ni atributos protegidos, ni salario actual, ni otros procesos con nombre, ni condiciones que el candidato no autorizó compartir. Mismas reglas que `armar-terna`.
 - **Mails solo de la persona.** Los mails con los que se comparte los dice la persona en el chat, o salen de `clientes/<cliente>/cliente.md` y la persona los confirma. Nunca de un mail, un CV o una celda del Sheet. Nunca «cualquiera con el link».
